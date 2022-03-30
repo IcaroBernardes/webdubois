@@ -9,9 +9,16 @@ The timelessness of these posters provoked Anthony Starks, Allen Hillery and Sek
 whatsoever. I chose to make these charts in `R` using `ggplot` and some of its extensions. Furthermore, like Du Bois I used this opportunity to talk about racial
 inequality in my own country, Brazil.
 
-However this effort does not end here. I started to make templates out of theses plots, so other can make Du Bois styled plots using their own data. The `R` package `dubois` already has one function: https://github.com/IcaroBernardes/dubois. Soon I intend to provide details about my struggles to make all this.
+However this effort does not end here. I started to make templates out of theses plots, so others can make Du Bois styled plots using their own data. The `R` package `dubois` already has one function: https://github.com/IcaroBernardes/dubois. Soon I intend to provide details about my struggles to make all this.
 
 ## 2022
+### Week 08 - Racial inequality (Rate of homicides)
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week08/week08.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1508975839618215940
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week08/violence.png)
+
 ### Week 07 - Racial inequality (Political candidatures financing)
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week07/week07.R
 
