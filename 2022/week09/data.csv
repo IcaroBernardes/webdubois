@@ -1,0 +1,9 @@
+race;busy_per_1000;ed_level
+black;15676;No formal education or incomplete 1st to 9th grade
+black;8283;Complete 1st to 9th grade or incomplete 10th to 12th grade
+black;19173;Complete 10th to 12th grade or incomplete higher education
+black;6429;Complete higher education
+white;8317;No formal education or incomplete 1st to 9th grade
+white;5485;Complete 1st to 9th grade or incomplete 10th to 12th grade
+white;16249;Complete 10th to 12th grade or incomplete higher education
+white;11658;Complete higher education
