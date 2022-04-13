@@ -12,6 +12,13 @@ inequality in my own country, Brazil.
 However this effort does not end here. I started to make templates out of theses plots, so others can make Du Bois styled plots using their own data. The `R` package `dubois` already has one function: https://github.com/IcaroBernardes/dubois. Soon I intend to provide details about my struggles to make all this.
 
 ## 2022
+### Week 10 - Racial inequality (Black candidates and elected)
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week10/week10.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1514299766271721475
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week10/elections.png)
+
 ### Week 09 - Racial inequality (Occupied blacks in Brazil by educational level)
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week09/week09.R
 
