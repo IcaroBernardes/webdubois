@@ -78,7 +78,7 @@ However this effort does not end here. I started to make templates out of theses
 ### Week 01 - Racial inequality (The Black Diaspora)
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week01/week01.R
 
-🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1516517164727119877
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week01/enslaved.png)
 
