@@ -75,6 +75,13 @@ However this effort does not end here. I started to make templates out of theses
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week02/income.png)
 
+### Week 01 - Racial inequality (The Black Diaspora)
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week01/week01.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week01/enslaved.png)
+
 ### Week 00 - Tuskegee Airmen
 💻 **Code:** https://github.com/IcaroBernardes/webdubois/blob/main/2022/week00/week00.R
 
