@@ -18,6 +18,7 @@ showtext::showtext_auto()
 ## Defines some layout constants
 lnhgt <- 0.7 ### To set the lineheight
 bgcolor <- "#d2b48c"
+idiom <- "en" ### Português (pt) or English (en)
 
 # 1. Data download, load and handling
 ## Data on inequality comes from IBGE
@@ -47,17 +48,43 @@ df <- rawdata %>%
                 y = as.numeric(state))
 
 ## Defines the order of the capital variable
-df <- df %>% 
-  dplyr::mutate(capital = factor(capital,
-                                 levels = c("more than 1M", "100k to 1M", "less than 100k")))
+if (idiom == "en") {
+  df <- df %>% 
+    dplyr::mutate(capital = factor(capital,
+                                   levels = c("more than 1M", "100k to 1M", "less than 100k")))
+} else {
+  df <- df %>% 
+    dplyr::mutate(capital = case_when(capital == "more than 1M" ~ "mais de 1M",
+                                      capital == "100k to 1M" ~ "de 100k a 1M",
+                                      capital == "less than 100k" ~ "menos de 100k",
+                                      TRUE ~ ""),
+                  capital = factor(capital,
+                                   levels = c("mais de 1M", "de 100k a 1M", "menos de 100k")))
+}
 
 ## Inverts the values of percentage for black so the data is on the left
 df <- df %>% 
   dplyr::mutate(percent = ifelse(race == "black", -percent, percent))
 
+## Orders the categories
+if (idiom == "en") {
+  df <- df %>% 
+    dplyr::mutate(race = factor(race, levels = c("black","white")))
+} else {
+  df <- df %>% 
+    dplyr::mutate(race = ifelse(race == "black", "negro", "branco"),
+                  race = factor(race, levels = c("negro","branco")))
+}
+
 ## Defines coordinates for the categories labels
+if (idiom == "en") {
+  cat_race <- c(rep("white",3),rep("black",3))
+} else {
+  cat_race <- c(rep("branco",3),rep("negro",3))
+}
+
 categories <- tibble(
-  race = c(rep("white",3),rep("black",3)),
+  race = cat_race,
   y = rep(c(6,16,26),2)
 ) %>% 
   dplyr::mutate(x = c(40, 80, 88, -40, -80, -88),
@@ -66,23 +93,51 @@ categories <- tibble(
   dplyr::mutate(label = toupper(label),
                 label = stringr::str_wrap(label, width = 8))
 
+if (idiom == "en") {
+  categories <- categories %>% 
+    dplyr::mutate(race = factor(race, levels = c("black","white")))
+} else {
+  categories <- categories %>% 
+    dplyr::mutate(race = factor(race, levels = c("negro","branco")))
+}
+
 ## Defines the breaks for the x-axis
 x_breaks <- c(
   seq(-100, -10, by = 10),
   seq(10, 100, by = 10)
 )
 
+## Defines the title of the x-axis
+if (idiom == "en") {
+  name_x <- "PER CENTS."
+} else {
+  name_x <- "POR CENTOS."
+}
+
 ## Defines the titles and message
-title <- "CAPITAL OF CANDIDATURES FOR THE LOWER HOUSE\nOF THE BRAZILIAN CONGRESS BY RACE AND STATE."
-subtitle <- "
-THIS DATA IS FROM 2018 AND THE CURRENCY IS BRAZILIAN REAIS (BRL). FOR COMPARISSON, ONE US DOLLAR THIS YEAR WAS WORTH 3.65 BRL IN AVERAGE.
-STATES ARE ORDERED BY SIMILARITY OF THE PERCENTAGES (USING BOND ENERGY AND TRAVELING SALESPERSON ALGORITHM).
-INSPIRED BY: W.E.B. DU BOIS | DATA FROM: IBGE | GRAPHIC BY: ÍCARO BERNARDES (@IcaroBSC)
-"
-message <- "
-ALL WHITE CANDIDATURES TOGETHER RECEIVED ALMOST 285M USD WHILE BLACK ONES RECEIVED 86M USD.<br>
-THIS IS LESS THAN <span style = color:'white';font-size:80px;>A THIRD</span> OF WHAT WHITES OBTAINED.
-"
+if (idiom == "en") {
+  title <- "CAPITAL OF CANDIDATURES FOR THE LOWER HOUSE\nOF THE BRAZILIAN CONGRESS BY RACE AND STATE."
+  subtitle <- "
+  THIS DATA IS FROM 2018 AND THE CURRENCY IS BRAZILIAN REAIS (BRL). FOR COMPARISSON, ONE US DOLLAR THIS YEAR WAS WORTH 3.65 BRL IN AVERAGE.
+  STATES ARE ORDERED BY SIMILARITY OF THE PERCENTAGES (USING BOND ENERGY AND TRAVELING SALESPERSON ALGORITHM).
+  INSPIRED BY: W.E.B. DU BOIS | DATA FROM: IBGE | GRAPHIC BY: ÍCARO BERNARDES (@IcaroBSC)
+  "
+  message <- "
+  ALL WHITE CANDIDATURES TOGETHER RECEIVED 283M USD WHILE BLACK ONES RECEIVED 85M USD.<br>
+  THIS IS AROUND <span style = color:'white';font-size:80px;>A THIRD</span> OF WHAT WHITES OBTAINED.
+  "
+} else {
+  title <- "CAPITAL DAS CANDIDATURAS A DEPUTADO\nFEDERAL POR RAÇA E UF."
+  subtitle <- "
+  DADOS DE 2018 E MOEDA EM REAIS (BRL).
+  AS UF'S SÃO ORDENADAS POR SIMILARIDADE DAS PORCENTAGENS (USANDO ALGORITMO DE BOND ENERGY E TRAVELING SALESPERSON).
+  INSPIRADO POR: W.E.B. DU BOIS | DADOS DE: IBGE | GRÁFICO POR: ÍCARO BERNARDES (@IcaroBSC)
+  "
+  message <- "
+  CANDIDATURAS BRANCAS RECEBERAM JUNTAS 1B BRL ENQUANTO CANDIDATURAS NEGRAS RECEBERAM 311M BRL.<br>
+  TAL VALOR É PRÓXIMO A <span style = color:'white';font-size:80px;>UM TERÇO</span> DO QUE OS BRANCOS OBTIVERAM.
+  "
+}
 
 # 2. Generates the plot
 ## Creates the main plot
@@ -143,7 +198,7 @@ p <- df %>%
   ) +
   
   ### Defines the axes scales
-  scale_x_continuous(name = "PER CENTS.", breaks = x_breaks, minor_breaks = seq(-100,100,2),
+  scale_x_continuous(name = name_x, breaks = x_breaks, minor_breaks = seq(-100,100,2),
                      labels = abs, expand = expansion(0,0)) +
   scale_y_continuous(name = NULL, breaks = 1:n_distinct(df$state),
                      labels = toupper(order), expand = expansion(0,0), sec.axis = dup_axis()) + 

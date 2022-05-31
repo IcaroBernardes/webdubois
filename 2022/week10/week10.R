@@ -16,6 +16,7 @@ showtext::showtext_auto()
 ## Defines some layout constants
 lnhgt <- 0.9 ### To set the lineheight
 bgcolor <- "#d2b48c"
+idiom <- "en" ### Português (pt) or English (en)
 
 # 1. Data download, load and handling
 ## Data on inequality comes from IBGE
@@ -27,16 +28,31 @@ df <- rawdata %>%
   dplyr::select(race, year, candidates, elected)
 
 ## Rearranges the data
-df <- df %>% 
-  tidyr::pivot_longer(cols = c(candidates, elected)) %>% 
-  dplyr::mutate(cat = glue::glue("{year}\n{toupper(name)}"))
+if (idiom == "en") {
+  df <- df %>% 
+    tidyr::pivot_longer(cols = c(candidates, elected)) %>% 
+    dplyr::mutate(cat = glue::glue("{year}\n{toupper(name)}"))
+} else {
+  df <- df %>% 
+    dplyr::rename(candidatos = candidates, eleitos = elected) %>% 
+    tidyr::pivot_longer(cols = c(candidatos, eleitos)) %>% 
+    dplyr::mutate(cat = glue::glue("{year}\n{toupper(name)}"))
+}
 
 ## Converts the categories to factor
-df <- df %>% 
-  dplyr::mutate(cat = factor(cat, levels = c(
-    "2014\nELECTED","2018\nELECTED",
-    "2014\nCANDIDATES","2018\nCANDIDATES"
-  )))
+if (idiom == "en") {
+  df <- df %>% 
+    dplyr::mutate(cat = factor(cat, levels = c(
+      "2014\nELECTED","2018\nELECTED",
+      "2014\nCANDIDATES","2018\nCANDIDATES"
+    )))
+} else {
+  df <- df %>% 
+    dplyr::mutate(cat = factor(cat, levels = c(
+      "2014\nELEITOS","2018\nELEITOS",
+      "2014\nCANDIDATOS","2018\nCANDIDATOS"
+    )))
+}
 
 ## Converts the race to factor and associates with the colors
 df <- df %>% 
@@ -50,30 +66,67 @@ df <- df %>%
                 pct = glue::glue("{pct}%")) %>% 
   dplyr::arrange(cat, desc(race)) %>% 
   dplyr::mutate(y = lag(value, default = 0) + value/2) %>% 
-  dplyr::mutate(size = ifelse(name == "elected", 7, 18)) %>% 
   dplyr::ungroup()
 
+if (idiom == "en") {
+  df <- df %>% 
+    dplyr::mutate(size = ifelse(name == "elected", 7, 18))
+} else {
+  df <- df %>% 
+    dplyr::mutate(size = ifelse(name == "eleitos", 7, 18))
+}
+
 ## Defines coordinates for the legend
+if (idiom == "en") {
+  leg_right <- c(
+    "BLACKS<br>NOIRS",
+    "NON-BLACKS<span style='font-size:20px;'> (MOSTLY WHITES)</span><br>
+    NON-NOIRS<span style='font-size:20px;'> (PRINCIPALEMENT DES BLANCS)</span>")
+} else {
+  leg_right <- c(
+    "NEGROS<br>NOIRS",
+    "NÃO-NEGROS<span style='font-size:20px;'> (PRINCIPALMENTE BRANCOS)</span><br>
+    NON-NOIRS<span style='font-size:20px;'> (PRINCIPALEMENT DES BLANCS)</span>")
+}
+
+if (idiom == "en") {
+  leg_left <- "PROPORTION OF<br>PROPORTION DE"
+} else {
+  leg_left <- "PROPORÇÃO DE<br>PROPORTION DE"
+}
+
 leg <- tibble(
   x = 1,
   y = c(1500,2200),
   fill = c("#dc143c","black"),
-  right = c("BLACKS<br>NOIRS",
-            "NON-BLACKS<span style='font-size:20px;'> (MOSTLY WHITES)</span><br>
-            NON-NOIRS<span style='font-size:20px;'> (PRINCIPALEMENT DES BLANCS)</span>"),
-  left = "PROPORTION OF<br>PROPORTION DE"
+  right = leg_right,
+  left = leg_left
 )
 
 ## Defines the title and subtitle
-title <- c(
-  "PROPORTION OF BLACKS AND NON-BLACKS CANDIDATES AND ELECTED
-  FOR THE LOWER HOUSE OF THE BRAZILIAN CONGRESS."
-)
+if (idiom == "en") {
+  title <- c(
+    "PROPORTION OF BLACKS AND NON-BLACKS CANDIDATES AND ELECTED
+    FOR THE LOWER HOUSE OF THE BRAZILIAN CONGRESS."
+  )
+} else {
+  title <- c(
+    "PROPORÇÃO DE CANDIDATOS E ELEITOS A DEPUTADO FEDERAL
+    ENTRE NEGROS E NÃO-NEGROS."
+  )
+}
 
-subtitle <- c(
-  "DATA FROM THE 2014 AND 2018 ELECTIONS. MOST OF THE NON-BLACKS ARE WHITES.
-  INSPIRED BY: W.E.B. DU BOIS | DATA FROM: IBGE | GRAPHIC BY: ÍCARO BERNARDES (@IcaroBSC)"
-)
+if (idiom == "en") {
+  subtitle <- c(
+    "DATA FROM THE 2014 AND 2018 ELECTIONS. MOST OF THE NON-BLACKS ARE WHITES.
+    INSPIRED BY: W.E.B. DU BOIS | DATA FROM: IBGE | GRAPHIC BY: ÍCARO BERNARDES (@IcaroBSC)"
+  )
+} else {
+  subtitle <- c(
+    "DADOS DAS ELEIÇÕES DE 2014 E 2018. A MAIORIA DOS NÃO-NEGROS SÃO BRANCOS.
+    INSPIRADO POR: W.E.B. DU BOIS | DADOS DE: IBGE | GRÁFICO POR: ÍCARO BERNARDES (@IcaroBSC)"
+  )
+}
 
 ## Calculates some values of interest
 pop <- rawdata %>% 
@@ -83,11 +136,19 @@ pop <- rawdata %>%
                    race = unique(race)) %>% 
   dplyr::filter(race == "black") %>% 
   dplyr::pull(pct)
-reprs <- df %>% 
-  dplyr::filter(cat == "2018\nELECTED") %>% 
-  dplyr::mutate(rate = round(100*value/sum(value))) %>% 
-  dplyr::filter(race == "black") %>% 
-  dplyr::pull(rate)
+if (idiom == "en") {
+  reprs <- df %>% 
+    dplyr::filter(cat == "2018\nELECTED") %>% 
+    dplyr::mutate(rate = round(100*value/sum(value))) %>% 
+    dplyr::filter(race == "black") %>% 
+    dplyr::pull(rate)
+} else {
+  reprs <- df %>% 
+    dplyr::filter(cat == "2018\nELEITOS") %>% 
+    dplyr::mutate(rate = round(100*value/sum(value))) %>% 
+    dplyr::filter(race == "black") %>% 
+    dplyr::pull(rate)
+}
 rate <- rawdata %>% 
   dplyr::filter(year == 2018, race == "black") %>% 
   dplyr::mutate(rate = round(candidates/elected)) %>% 
@@ -104,14 +165,9 @@ elec <- round(tot_elec*pop/100)
 cand <- elec*rate
 mon <- round(cand*cap/1000)
 
-## Defines coordinates for the message
-message <- tibble(
-  x = c(rep(1.8,7), rep(1.82,7)),
-  y = c(seq(5200, 8500, length.out = 7),
-        seq(5200, 8500, length.out = 7)+35),
-  hjust = c(rep(1,7), rep(0,7)),
-  size = c(rep(10,7), rep(24,7)),
-  label = c(
+## Defines text of the message
+if (idiom == "en") {
+  msg_text <- c(
     "IN 2018, BLACKS ACCOUNTED FOR<br>
     OF THE BRAZILIAN POPULATION.",
     
@@ -131,7 +187,42 @@ message <- tibble(
     PEOPLE. A TWO-FOLD INCREASE.",
     
     "AND ALSO MEANS INCREASING THE TOTAL FINANCING TO<br>
-    WHICH IS A THIRD OF WHAT WHITES RECEIVED IN 2018.",
+    WHICH IS 70% OF WHAT WHITES RECEIVED IN 2018."
+  )
+} else {
+  msg_text <- c(
+    "EM 2018, NEGROS CORRESPONDIAM A<br>
+    DA POPULAÇÃO BRASILEIRA.",
+    
+    "TODAVIA APENAS<br>
+    DOS ELEITOS ERAM NEGROS.",
+    
+    "1 EM CADA<br>
+    CANDIDATOS NEGROS FOI ELEITO NESSE ANO.",
+    
+    "AS CAMPANHAS DELES ARRECADARAM<br>
+    POR CANDIDATO.",
+    
+    "O POVO NEGRO TERIA DE ELEGER<br>
+    PESSOAS PARA ATINGIR REPRESENTAÇÃO PROPORCIONAL.",
+    
+    "ISSO SIGNIFICA TER COMO CANDIDATOS<br>
+    PESSOAS. DUAS VEZES MAIS CANDIDATURAS.",
+    
+    "TAMBÉM SIGNIFICA AUMENTAR O FINANCIAMENTO TOTAL PARA<br>
+    QUE É 70% DO QUE FOI RECEBIDO POR BRANCOS EM 2018."
+  )
+}
+
+## Defines coordinates for the message
+message <- tibble(
+  x = c(rep(1.8,7), rep(1.82,7)),
+  y = c(seq(5200, 8500, length.out = 7),
+        seq(5200, 8500, length.out = 7)+35),
+  hjust = c(rep(1,7), rep(0,7)),
+  size = c(rep(10,7), rep(24,7)),
+  label = c(
+    msg_text,
     
     glue::glue("**{pop}%**"),
     glue::glue("**{reprs}%**"),
