@@ -5,11 +5,17 @@ and Pan-Africanist civil rights activist (*Source: Wikpedia*).
 
 In the 1900 Paris Exposition his team made a historical display. They presented in many charts the situation of Black people in Georgia and the US in general.
 The timelessness of these posters provoked Anthony Starks, Allen Hillery and Sekou Tyler to create the
-[#DuBoisChallenge2022](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge/2022). The proposal was to reproduce Du Bois posters with any tools
+[#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools
 whatsoever. I chose to make these charts in `R` using `ggplot` and some of its extensions. Furthermore, like Du Bois I used this opportunity to talk about racial
 inequality in my own country, Brazil.
 
-However this effort does not end here. I started to make templates out of theses plots, so others can make Du Bois styled plots using their own data. The `R` package `dubois` already has one function: https://github.com/IcaroBernardes/dubois. Soon I intend to provide details about my struggles to make all this.
+## 2023
+### Week 02 - Racial inequality (Real income of Black Brazilians)
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week02/week02.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1625930883755540496
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week02/income.png)
 
 ## 2022
 ### Week 10 - Racial inequality (Black candidates and elected)
