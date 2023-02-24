@@ -13,8 +13,10 @@ library(systemfonts)
 library(tidyr)
 
 ## Defines colors
-tan <- "#d2b48c"
-brown <- "#654321"
+palette <- c("#000000", "#654321", "#d2b48c", "#ffd700", "#ffc0cb", "#dc143c", "#00aa00", "#4682b4", "#7e6583")
+black <- palette[1]
+brown <- palette[2]
+tan <- palette[3]
 
 ## Makes special styled fonts available to R (e.g.: Medium, Solid, etc)
 ### Lists fonts visible to {systemfonts}

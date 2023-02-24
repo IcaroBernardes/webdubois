@@ -10,6 +10,13 @@ whatsoever. I chose to make these charts in `R` using `ggplot` and some of its e
 inequality in my own country, Brazil.
 
 ## 2023
+### Week 03 - Racial inequality (Homicide victims by race and sex)
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week03/week03.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week03/victims.png)
+
 ### Week 02 - Racial inequality (Real income of Black Brazilians)
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week02/week02.R
 
