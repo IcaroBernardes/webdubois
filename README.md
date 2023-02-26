@@ -1,19 +1,26 @@
 # webdubois: W.E.B. Du Bois Challenge plots <img align="right" src="https://github.com/IcaroBernardes/webdubois/blob/main/portrait.jpg" alt="logo" width="200">
 
 [W.E.B. Du Bois](https://en.wikipedia.org/wiki/W._E._B._Du_Bois) (February 23, 1868 – August 27, 1963) was an American sociologist, socialist, historian
-and Pan-Africanist civil rights activist (*Source: Wikpedia*). 
+and Pan-Africanist civil rights activist (*Source: Wikipedia*). 
 
 In the 1900 Paris Exposition his team made a historical display. They presented in many charts the situation of Black people in Georgia and the US in general.
-The timelessness of these posters provoked Anthony Starks, Allen Hillery and Sekou Tyler to create the
+The timelessness of these posters provoked [Anthony Starks](https://twitter.com/ajstarks), [Allen Hillery](https://twitter.com/AlDatavizguy) and [Sekou Tyler](https://twitter.com/sqlsekou) to create the
 [#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools
-whatsoever. I chose to make these charts in `R` using `ggplot` and some of its extensions. Furthermore, like Du Bois I used this opportunity to talk about racial
-inequality in my own country, Brazil.
+whatsoever. I chose to make these charts in `R` using `ggplot` and many extensions. Furthermore, like Du Bois I used this opportunity to talk about racial
+inequality in my homeland, Brazil.
 
 ## 2023
+### Week 04 - Distribution of Blacks in Brazil
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week04/week04.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week04/distribution.png)
+
 ### Week 03 - Racial inequality (Homicide victims by race and sex)
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week03/week03.R
 
-🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1629131002743250945
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week03/victims.png)
 

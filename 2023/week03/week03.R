@@ -218,7 +218,7 @@ title <- "
 
 ## Creates the plot
 p <- NULL |> 
-  ggplot(aes(x, y)) + 
+  ggplot(aes(x = x, y = y)) + 
   
   ### Places the lines that compose the plot
   ggborderline::geom_borderpath(
@@ -277,8 +277,7 @@ p <- NULL |>
     plot.background = element_rect(fill = tan, color = NA),
     plot.margin = margin(60, 40, 100, 40),
     
-    text = element_text(family = "Teko"),
-    strip.text = element_blank()
+    text = element_text(family = "Teko")
   )
 
 ## Shows an accurate preview of the plot
