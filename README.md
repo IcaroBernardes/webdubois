@@ -13,7 +13,7 @@ inequality in my homeland, Brazil.
 ### Week 04 - Distribution of Blacks in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week04/week04.R
 
-🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1630575810380804100
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week04/distribution.png)
 
