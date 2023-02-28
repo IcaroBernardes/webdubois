@@ -58,7 +58,7 @@ df <- dplyr::left_join(pop, area) |>
 
 ## Calculates the absolute size of the Black population for each state
 df <- df |> 
-  dplyr::mutate(pop = pop_total_per1k*1000*pop_pct)
+  dplyr::mutate(pop = pop_total_per1k*1000*(pop_pct/100))
 
 ## Calculates the population density for each state (person per sq. km)
 df <- df |> 
@@ -69,14 +69,14 @@ df <- df |>
 jitter <- df |> 
   ggplot() +
   ggbeeswarm::geom_beeswarm(
-    aes(x = dens, y = "UFs"), method = "center", cex = 3
+    aes(x = dens, y = "UFs", group = abbrev), method = "center", cex = 3, side = 1L
   ) + 
   scale_x_log10()
 print(jitter)
 
 ## Adds vertical lines that indicate the
 ## limits of the categories of density
-categ_lim <- c(300, 1000, 3000, 10000)
+categ_lim <- c(3, 10, 30, 100)
 jitter <- jitter + 
   geom_vline(xintercept = categ_lim, color = "red", linetype = "dashed")
 print(jitter)
@@ -87,8 +87,8 @@ df <- df |>
     dens, breaks = categ_lim,
     labels = santoku::lbl_glue(
       label = "MORE THAN {l}<br>{r} OR LESS",
-      first = "{r}<br>OR LESS",
-      last = "MORE THAN<br>{l}",
+      first = "{r} OR<br>LESS",
+      last = "MORE<br>THAN {l}",
       fmt = scales::label_number()
     ),
     extend = TRUE, left = FALSE
@@ -140,7 +140,7 @@ p <- df |>
           linewidth = 0.8, linetype = "twodash") +
   
   ### Places the contour of the country
-  geom_sf(fill = NA, color = black, linewidth = 1.5, data = br) +
+  geom_sf(fill = NA, color = black, linewidth = 2, data = br) +
   
   ### Places the legend points
   geom_point(aes(x = x, y = y, fill = breaks), shape = 21, color = black, 
@@ -179,12 +179,12 @@ p <- df |>
       hjust = 0.5, vjust = 0, size = 20, lineheight = 2.5,
       margin = margin(0, 0, 80, 0)
     ),
-    plot.background = element_rect(fill = tan, color = NA),
+    plot.background = element_rect(fill = tan, color = tan),
     plot.margin = margin(60, 0, 0, 0),
     
     legend.position = "none",
     text = element_text(family = "Teko")
-  )
+  ) 
 
 ## Shows an accurate preview of the plot
 ggview::ggview(p, device = "png", dpi = 320,
