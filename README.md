@@ -10,6 +10,13 @@ whatsoever. I chose to make these charts in `R` using `ggplot` and many extensio
 inequality in my homeland, Brazil.
 
 ## 2023
+### Week 05 - Rio Samba Schools parade winners
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week05/week05.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week05/samba_champions.png)
+
 ### Week 04 - Distribution of Blacks in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week04/week04.R
 
