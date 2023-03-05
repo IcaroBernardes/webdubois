@@ -12,7 +12,21 @@ $(document).ready(function(){
   $("#slider").on("input change", (e)=>{
     const sliderPos = e.target.value;
     // Update the width of the foreground image
-    $('.foreground-img').css('width', `${sliderPos}%`)
+    $('.foreground-img').css('width', `${sliderPos}%`);
+    // Update the position of the slider button
+    $('.slider-button').css('left', `calc(${sliderPos}% - 18px)`);
+  });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  const origimages = {y23wk03:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-11.jpg', y23wk04:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-38.jpg'};
+  const newimages = {y23wk03:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week03/victims.png', y23wk04:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week04/distribution.png'};
+  $('.gallery').click(function(e) {
+    const idimage = e.target.id;
+    $('.background-img').css('background-image', `url(${newimages[idimage]})`);
+    $('.foreground-img').css('background-image', `url(${origimages[idimage]})`);
   });
 });
 </script>
@@ -25,8 +39,13 @@ $(document).ready(function(){
     <div class='img background-img'></div>
     <div class='img foreground-img'></div>
     <input type="range" min="1" max="100" value="50" class="slider" name='slider' id="slider">
+    <div class='slider-button'></div>
 </div>
 
+<div class='gallery'>
+<img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week03/victims.png' class='item' id='y23wk03'>
+<img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week04/distribution.png' class='item' id='y23wk04'>
+</div>
 
 </body>
 </html>
