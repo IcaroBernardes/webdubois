@@ -22,11 +22,11 @@ body {
 }
 
 .container .background-img {
-  background-image: url('https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-11.jpg');
+  background-image: url('https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week03/victims.png');
 }
 
 .container .foreground-img {
-  background-image: url('./2023/week03/victims.png');
+  background-image: url('https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-11.jpg');
   width: 50%;
 }
 
