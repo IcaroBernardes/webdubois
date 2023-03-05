@@ -102,13 +102,14 @@ body {
   margin-left: auto;
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
 .item {
-  width: 20%;
-  margin: 10px;
+  width: 100px;
+  margin: 10px 100px 10px 10px;
   cursor: pointer;
   border: 2px solid transparent;
   transition: all .2s;
@@ -116,4 +117,15 @@ body {
 
 .item:hover {
   border: 2px solid red;
+}
+
+.tooltip-inner {
+  width: 85px;
+  padding: 0;
+  margin: 10px;
+}
+
+.tooltip {
+  margin: 0;
+  padding: 0;
 }

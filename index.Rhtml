@@ -3,14 +3,14 @@
 <head>
 <title>Du Bois Gallery</title>
 
-<!-- Connects to the CSS -->
-<link rel="stylesheet" href="www/styles.css">
-
 <!-- Connects to the slim version of JQuery through their CDN -->
 <script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
 
+<!-- Connects to the min version of Popper through cdnjs -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<link rel="preload" as="image" href="https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-38.jpg">
+<!-- Connects to the CSS -->
+<link rel="stylesheet" href="www/styles.css">
 
 <!-- JS script that connects slider input
 position to the width of the foreground image -->
@@ -57,6 +57,30 @@ $(document).ready(function(){
   });
 });
 </script>
+
+<script>
+$(document).ready(function(){
+
+  const imageids = ["y23wk02", "y23wk03", "y23wk04", "y23wk05"];
+  
+  const origimages = {
+    y23wk02:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-18.jpg',
+    y23wk03:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-11.jpg',
+    y23wk04:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-38.jpg',
+    y23wk05:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-57.jpg'
+  };
+  
+  for (let i = 0; i < imageids.length; i++) {
+    const el = "#" + imageids[i];
+    $(el).tooltip({
+        animated: "fade",
+        placement: "right",
+        html: true,
+        title: $("<div>").html("<img src='"+origimages[imageids[i]]+"' width='100%'>")
+      })
+  }
+});
+</script>
 </head>
 
 <body>
@@ -76,6 +100,8 @@ $(document).ready(function(){
 <img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week04/distribution.png' class='item' id='y23wk04'>
 <img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week05/samba_champions.png' class='item' id='y23wk05'>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 </body>
 </html>
