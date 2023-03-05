@@ -65,48 +65,78 @@
 </style>
 <title>Du Bois Gallery</title>
 
+<!-- Connects to the CSS -->
 <link rel="stylesheet" href="www/styles.css">
 
+<!-- Connects to the slim version of JQuery through their CDN -->
 <script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
 
+
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-38.jpg">
+
+<!-- JS script that connects slider input
+position to the width of the foreground image -->
 <script>
 $(document).ready(function(){
+  // .on("input change") responds to changes on the input while dragging the mouse
+  // .change() only triggers once the mouse stops being dragged
   $("#slider").on("input change", (e)=>{
     const sliderPos = e.target.value;
     // Update the width of the foreground image
     $('.foreground-img').css('width', `${sliderPos}%`);
     // Update the position of the slider button
-    $('.slider-button').css('left', `calc(${sliderPos}% - 18px)`);
+    $('#slider-button').css('left', `calc(${sliderPos}% - 18px)`);
   });
 });
 </script>
 
+<!-- JS script that connects clicking on the gallery menu
+to which images are shown in the container -->
 <script>
 $(document).ready(function(){
-  const origimages = {y23wk03:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-11.jpg', y23wk04:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-38.jpg'};
-  const newimages = {y23wk03:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week03/victims.png', y23wk04:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week04/distribution.png'};
-  $('.gallery').click(function(e) {
+  // Array of urls of original images
+  const origimages = {
+    y23wk02:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-18.jpg',
+    y23wk03:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-11.jpg',
+    y23wk04:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-38.jpg'
+    y23wk05:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-57.jpg'
+  };
+  
+  // Array of urls of new images
+  const newimages = {
+    y23wk02:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week02/income.png',
+    y23wk03:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week03/victims.png',
+    y23wk04:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week04/distribution.png',
+    y23wk05:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week05/samba_champions.png'
+  };
+  
+  // Gets the 'id' of the clicked object and uses it to search through
+  // the arrays and defines the urls of the new background images
+  $('#gallery').click(function(e) {
     const idimage = e.target.id;
     $('.background-img').css('background-image', `url(${newimages[idimage]})`);
     $('.foreground-img').css('background-image', `url(${origimages[idimage]})`);
   });
 });
 </script>
-
 </head>
 
 <body>
 
-<div class='container'>
+<!-- Container that shows the images -->
+<div id='container'>
     <div class='img background-img'></div>
     <div class='img foreground-img'></div>
     <input type="range" min="1" max="100" value="50" class="slider" name='slider' id="slider">
-    <div class='slider-button'></div>
+    <div id='slider-button'></div>
 </div>
 
-<div class='gallery'>
+<!-- Gallery menu -->
+<div id='gallery'>
+<img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week02/income.png' class='item' id='y23wk02'>
 <img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week03/victims.png' class='item' id='y23wk03'>
 <img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week04/distribution.png' class='item' id='y23wk04'>
+<img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week05/samba_champions.png' class='item' id='y23wk05'>
 </div>
 
 </body>
