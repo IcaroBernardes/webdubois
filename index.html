@@ -1,0 +1,94 @@
+<html>
+
+<head>
+<style type="text/css">
+.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<title>Du Bois Gallery</title>
+
+<link rel="stylesheet" href="www/styles.css">
+
+<script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){
+  $("#slider").on("input change", (e)=>{
+    const sliderPos = e.target.value;
+    // Update the width of the foreground image
+    $('.foreground-img').css('width', `${sliderPos}%`)
+  });
+});
+</script>
+
+</head>
+
+<body>
+
+<div class='container'>
+    <div class='img background-img'></div>
+    <div class='img foreground-img'></div>
+    <input type="range" min="1" max="100" value="50" class="slider" name='slider' id="slider">
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+body {
+  max-width: 1000px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container {
+  position: relative;
+  width: 900px;
+  height: 600px;
+  border: 2px solid white;
+}
+
+.container .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 900px 100%;
+}
+
+.container .background-img {
+  background-image: url('https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-11.jpg');
+}
+
+.container .foreground-img {
+  background-image: url('./2023/week03/victims.png');
+  width: 50%;
+}
+
+.slider {
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,255,0.3);
+  outline: none;
+  margin: 0;
+  transition: all .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider:hover {
+  background: rgba(0,0,255,0.1);
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 6px;
+  height: 600px;
+  background: white;
+  cursor: pointer;
+}
+}
