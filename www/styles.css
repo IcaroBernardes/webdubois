@@ -1,4 +1,4 @@
-main {
+body {
   max-width: 810px;
   width: 90%;
   margin-right: auto;
@@ -112,7 +112,7 @@ main {
 
 .item {
   width: 100px;
-  margin: 10px 10px 10px 100px;
+  /*margin: 10px 10px 10px 100px;*/
   cursor: pointer;
   border: 2px solid transparent;
   transition: all .2s;
@@ -133,3 +133,16 @@ main {
   margin: 0;
   padding: 0;
 }
+
+.tip-bg {
+  width: 92px;
+  height: 117px;
+  margin-right: 10px;
+}
+
+.tip-bg rect {
+  width: 100%;
+  height: 100%;
+  fill: gray;
+}
+

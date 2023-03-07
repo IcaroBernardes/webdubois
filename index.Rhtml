@@ -6,7 +6,7 @@
 <!-- Connects to the slim version of JQuery through their CDN -->
 <script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
 
-<!-- Connects to the min version of Popper through cdnjs -->
+<!-- Connects to the CSS of Bootstrap through cdnjs -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <!-- Connects to the CSS -->
@@ -32,23 +32,23 @@ $(document).ready(function(){
 to which images are shown in the container -->
 <script>
 $(document).ready(function(){
-  // Array of urls of original images
+  // Array of urls of the original images
   const origimages = {
-    y23wk02:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-18.jpg',
-    y23wk03:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-11.jpg',
-    y23wk04:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-38.jpg',
-    y23wk05:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-57.jpg'
+    y23wk02:'www/dubois/y23wk02.jpg',
+    y23wk03:'www/dubois/y23wk03.jpg',
+    y23wk04:'www/dubois/y23wk04.jpg',
+    y23wk05:'www/dubois/y23wk05.jpg'
   };
   
-  // Array of urls of new images
+  // Array of urls of the new images
   const newimages = {
-    y23wk02:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week02/income.png',
-    y23wk03:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week03/victims.png',
-    y23wk04:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week04/distribution.png',
-    y23wk05:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week05/samba_champions.png'
+    y23wk02:'www/new/y23wk02.png',
+    y23wk03:'www/new/y23wk03.png',
+    y23wk04:'www/new/y23wk04.png',
+    y23wk05:'www/new/y23wk05.png'
   };
   
-  // Gets the 'id' of the clicked object and uses it to search through
+  // Gets the id's of the clicked object and uses it to search through
   // the arrays and defines the urls of the new background images
   $('#gallery').click(function(e) {
     const idimage = e.target.id;
@@ -58,18 +58,22 @@ $(document).ready(function(){
 });
 </script>
 
+<!-- JS script that binds original and new plots
+to make the tooltips -->
 <script>
 $(document).ready(function(){
-
+  // Array of image id's
   const imageids = ["y23wk02", "y23wk03", "y23wk04", "y23wk05"];
   
+  // Array of urls of the original images
   const origimages = {
-    y23wk02:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-18.jpg',
-    y23wk03:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-11.jpg',
-    y23wk04:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-38.jpg',
-    y23wk05:'https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-57.jpg'
+    y23wk02:'www/dubois/thumb_y23wk02.jpg',
+    y23wk03:'www/dubois/thumb_y23wk03.jpg',
+    y23wk04:'www/dubois/thumb_y23wk04.jpg',
+    y23wk05:'www/dubois/thumb_y23wk05.jpg'
   };
   
+  // Iterates along the id's and adds the original images as tooltips
   for (let i = 0; i < imageids.length; i++) {
     const el = "#" + imageids[i];
     $(el).tooltip({
@@ -83,7 +87,7 @@ $(document).ready(function(){
 </script>
 </head>
 
-<body><main>
+<body>
 
 <!-- Container that shows the images -->
 <div id='container'>
@@ -95,13 +99,22 @@ $(document).ready(function(){
 
 <!-- Gallery menu -->
 <div id='gallery'>
-<img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week02/income.png' class='item' id='y23wk02'>
-<img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week03/victims.png' class='item' id='y23wk03'>
-<img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week04/distribution.png' class='item' id='y23wk04'>
-<img src='https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week05/samba_champions.png' class='item' id='y23wk05'>
+    <svg class='tip-bg'><rect></svg>
+    <img src='www/new/thumb_y23wk02.png' class='item' id='y23wk02'>
+
+    <svg class='tip-bg'><rect></svg>
+    <img src='www/new/thumb_y23wk03.png' class='item' id='y23wk03'>
+
+    <svg class='tip-bg'><rect></svg>
+    <img src='www/new/thumb_y23wk04.png' class='item' id='y23wk04'>
+
+    <svg class='tip-bg'><rect></svg>
+    <img src='www/new/thumb_y23wk05.png' class='item' id='y23wk05'>
+
 </div>
 
+<!-- Connects to a bundle of Bootstrap and Popper through cdnjs -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-</main></body>
+</body>
 </html>
