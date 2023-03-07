@@ -13,7 +13,7 @@ inequality in my homeland, Brazil.
 ### Week 05 - Rio Samba Schools parade winners
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week05/week05.R
 
-🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1633109934890991616
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week05/samba_champions.png)
 
