@@ -34,6 +34,8 @@ to which images are shown in the container -->
 $(document).ready(function(){
   // Array of urls of the original images
   const origimages = {
+    y22wk09:'www/dubois/y22wk09.jpg',
+    y22wk10:'www/dubois/y22wk10.jpg',
     y23wk02:'www/dubois/y23wk02.jpg',
     y23wk03:'www/dubois/y23wk03.jpg',
     y23wk04:'www/dubois/y23wk04.jpg',
@@ -42,6 +44,8 @@ $(document).ready(function(){
   
   // Array of urls of the new images
   const newimages = {
+    y22wk09:'www/new/y22wk09.png',
+    y22wk10:'www/new/y22wk10.png',
     y23wk02:'www/new/y23wk02.png',
     y23wk03:'www/new/y23wk03.png',
     y23wk04:'www/new/y23wk04.png',
@@ -52,8 +56,12 @@ $(document).ready(function(){
   // the arrays and defines the urls of the new background images
   $('#gallery').click(function(e) {
     const idimage = e.target.id;
-    $('.background-img').css('background-image', `url(${newimages[idimage]})`);
-    $('.foreground-img').css('background-image', `url(${origimages[idimage]})`);
+    
+    // Guarantees that the change only happens if an object that has an id is clicked
+    if (idimage.length != 0) {
+      $('.background-img').css('background-image', `url(${newimages[idimage]})`);
+      $('.foreground-img').css('background-image', `url(${origimages[idimage]})`);
+    }
   });
 });
 </script>
@@ -63,10 +71,12 @@ to make the tooltips -->
 <script>
 $(document).ready(function(){
   // Array of image id's
-  const imageids = ["y23wk02", "y23wk03", "y23wk04", "y23wk05"];
+  const imageids = ["y22wk09", "y22wk10", "y23wk02", "y23wk03", "y23wk04", "y23wk05"];
   
   // Array of urls of the original images
   const origimages = {
+    y22wk09:'www/dubois/thumb_y22wk09.jpg',
+    y22wk10:'www/dubois/thumb_y22wk10.jpg',
     y23wk02:'www/dubois/thumb_y23wk02.jpg',
     y23wk03:'www/dubois/thumb_y23wk03.jpg',
     y23wk04:'www/dubois/thumb_y23wk04.jpg',
@@ -90,15 +100,25 @@ $(document).ready(function(){
 <body>
 
 <!-- Container that shows the images -->
+<div id='over-container'>
 <div id='container'>
     <div class='img background-img'></div>
     <div class='img foreground-img'></div>
     <input type="range" min="1" max="100" value="50" class="slider" name='slider' id="slider">
     <div id='slider-button'></div>
 </div>
+</div>
 
 <!-- Gallery menu -->
-<div id='gallery'>
+
+<div id='gallery'><div>
+
+    <svg class='tip-bg'><rect></svg>
+    <img src='www/new/thumb_y22wk09.png' class='item' id='y22wk09'>
+
+    <svg class='tip-bg'><rect></svg>
+    <img src='www/new/thumb_y22wk10.png' class='item' id='y22wk10'>
+
     <svg class='tip-bg'><rect></svg>
     <img src='www/new/thumb_y23wk02.png' class='item' id='y23wk02'>
 
@@ -111,7 +131,7 @@ $(document).ready(function(){
     <svg class='tip-bg'><rect></svg>
     <img src='www/new/thumb_y23wk05.png' class='item' id='y23wk05'>
 
-</div>
+</div></div>
 
 <!-- Connects to a bundle of Bootstrap and Popper through cdnjs -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

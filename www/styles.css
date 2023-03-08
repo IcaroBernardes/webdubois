@@ -3,15 +3,22 @@ body {
   width: 90%;
   margin-right: auto;
   margin-left: auto;
+  background-color: hsl(38deg 26% 18%);
 }
 
 /* Container of images */
+#over-container {
+  width: 580px;
+  height: 100vh;
+  padding: 20px 10px 0 20px;
+  float: left;
+  background-color: hsl(34deg 86% 86%);
+}
+
 #container {
   position: relative;
   width: 550px;
   height: 700px;
-  margin: 20px 0 20px 10px;
-  float: left;
 }
 
 #container .img {
@@ -25,11 +32,11 @@ body {
 }
 
 #container .background-img {
-  background-image: url('https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week03/victims.png');
+  background-image: url('./new/y23wk05.png');
 }
 
 #container .foreground-img {
-  background-image: url('https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/original-plate-11.jpg');
+  background-image: url('./dubois/y23wk05.jpg');
   width: 50%;
 }
 
@@ -40,7 +47,7 @@ body {
   appearance: none;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.3);
+  background: rgba(255,255,255,0.1);
   outline: none;
   margin: 0;
   transition: all .2s;
@@ -50,7 +57,7 @@ body {
 }
 
 .slider:hover {
-  background: rgba(0,0,0,0.1);
+  background: transparent;
 }
 
 .slider::-webkit-slider-thumb {
@@ -97,12 +104,17 @@ body {
 
 /* Menu gallery */
 #gallery {
-  position: relative;
+  width: 230px;
+  height: 100vh;
+  float: left;
+  padding-top: 20px;
+  background-color: hsl(34deg 86% 86%);
+}
+
+#gallery div {
   width: 230px;
   height: 700px;
-  margin: 20px 10px;
   padding: 10px 0;
-  float: left;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -112,19 +124,19 @@ body {
 
 .item {
   width: 100px;
-  /*margin: 10px 10px 10px 100px;*/
+  margin: 5px;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 4px solid transparent;
   transition: all .2s;
 }
 
 .item:hover {
-  border: 2px solid red;
+  border: 4px solid #d18520;
 }
 
 /* Tooltips */
 .tooltip-inner {
-  width: 85px;
+  width: 65px;
   padding: 0;
   margin: 10px;
 }
@@ -135,14 +147,15 @@ body {
 }
 
 .tip-bg {
-  width: 92px;
-  height: 117px;
-  margin-right: 10px;
+  width: 90px;
+  height: 100px;
+  padding-left: 6px;
+  overflow: visible !important;
 }
 
 .tip-bg rect {
-  width: 100%;
+  width: 200%;
   height: 100%;
-  fill: gray;
+  rx: 15px;
+  fill: hsl(34deg 100% 92%);
 }
-
