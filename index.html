@@ -66,7 +66,7 @@
 <title>Du Bois Gallery</title>
 
 <!-- Connects to the slim version of JQuery through their CDN -->
-<script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
 <!-- Connects to the CSS of Bootstrap through cdnjs -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -94,24 +94,34 @@ $(document).ready(function(){
 to which images are shown in the container -->
 <script>
 $(document).ready(function(){
-  // Array of urls of the original images
+  // Empty object of names for the original images
   const origimages = {
-    y22wk09:'www/dubois/y22wk09.jpg',
-    y22wk10:'www/dubois/y22wk10.jpg',
-    y23wk02:'www/dubois/y23wk02.jpg',
-    y23wk03:'www/dubois/y23wk03.jpg',
-    y23wk04:'www/dubois/y23wk04.jpg',
-    y23wk05:'www/dubois/y23wk05.jpg'
+    y22wk09:'',
+    y22wk10:'',
+    y23wk02:'',
+    y23wk03:'',
+    y23wk04:'',
+    y23wk05:''
   };
   
-  // Array of urls of the new images
+  // Object of urls of the original images
+  for(let item of Object.keys(origimages)) {
+    origimages[item] = 'www/dubois/' + item + '.jpg'
+  };
+  
+  // Empty object of names for the new images
   const newimages = {
-    y22wk09:'www/new/y22wk09.png',
-    y22wk10:'www/new/y22wk10.png',
-    y23wk02:'www/new/y23wk02.png',
-    y23wk03:'www/new/y23wk03.png',
-    y23wk04:'www/new/y23wk04.png',
-    y23wk05:'www/new/y23wk05.png'
+    y22wk09:'',
+    y22wk10:'',
+    y23wk02:'',
+    y23wk03:'',
+    y23wk04:'',
+    y23wk05:''
+  };
+  
+  // Object of urls of the new images
+  for(let item of Object.keys(newimages)) {
+    newimages[item] = 'www/new/' + item + '.png'
   };
   
   // Gets the id's of the clicked object and uses it to search through
@@ -135,14 +145,19 @@ $(document).ready(function(){
   // Array of image id's
   const imageids = ["y22wk09", "y22wk10", "y23wk02", "y23wk03", "y23wk04", "y23wk05"];
   
-  // Array of urls of the original images
+  // Empty object of names for the original images
   const origimages = {
-    y22wk09:'www/dubois/thumb_y22wk09.jpg',
-    y22wk10:'www/dubois/thumb_y22wk10.jpg',
-    y23wk02:'www/dubois/thumb_y23wk02.jpg',
-    y23wk03:'www/dubois/thumb_y23wk03.jpg',
-    y23wk04:'www/dubois/thumb_y23wk04.jpg',
-    y23wk05:'www/dubois/thumb_y23wk05.jpg'
+    y22wk09:'',
+    y22wk10:'',
+    y23wk02:'',
+    y23wk03:'',
+    y23wk04:'',
+    y23wk05:''
+  };
+  
+  // Object of urls of the original images
+  for(let item of Object.keys(origimages)) {
+    origimages[item] = 'www/dubois/thumb_' + item + '.jpg'
   };
   
   // Iterates along the id's and adds the original images as tooltips
@@ -157,9 +172,68 @@ $(document).ready(function(){
   }
 });
 </script>
+
+<!-- Establishes triggers to show and hide info with a slide animation.
+Also changes the svg text that is visible inside the button -->
+<script>
+$(document).ready(function(){
+  $("#plus").click(function() {
+    $("#info").slideDown("slow");
+    $("#plus").fadeToggle({duration: 200, queue: false});
+    $("#minus").fadeToggle({duration: 200, queue: false});
+  });
+  $("#minus").click(function() {
+    $("#info").slideUp("slow");
+    $("#minus").fadeToggle({duration: 200, queue: false});
+    $("#plus").fadeToggle({duration: 200, queue: false});
+  });
+});
+</script>
+
+<!-- E -->
+<script>
+$(document).ready(function(){
+  $("#more > *").hover(function() {
+    $("#more > svg > circle").css("stroke", "red");
+    $("#more > svg > circle").css("stroke", "transparent");
+  });
+});
+</script>
+
 </head>
 
 <body>
+
+<!-- Title section with info on the project -->
+<div id='title-section'>
+    <div id='title'>
+      WEBDUBOIS: VISUALIZING RACIAL INEQUALITY AND BLACK ACHIEVEMENTS IN BRAZIL
+      <div id='subtitle'>
+        <a href='https://twitter.com/icarobsc' target='_blank'>
+          <span class='glyphs' id='twt'></span> @IcaroBSC
+        </a>
+        <a href='https://github.com/IcaroBernardes' target='_blank'>
+          <span class='glyphs' id='ghb'></span> @IcaroBernardes
+        </a>
+        <a href='https://www.linkedin.com/in/icarobsc/' target='_blank'>
+          <span class='glyphs' id='lkd'></span> @icarobsc
+        </a>
+      </div>
+    </div>
+    <div id='more'>
+      <svg viewBox="0 0 30 30">
+        <circle></circle>
+        <text x="7" y="27" id='plus'>+</text>
+        <text x="9" y="27" id='minus'>-</text>
+      </svg>
+      <div>MORE INFO:</div>
+    </div>
+    <div id='info'>
+    <a href='https://en.wikipedia.org/wiki/W._E._B._Du_Bois' target='_blank'>W.E.B. Du Bois</a> (February 23, 1868 – August 27, 1963) was an American sociologist, socialist, historian and Pan-Africanist civil rights activist <span style='font-style:italic;'>(Source: Wikipedia)</span>.
+    <br><br>
+    In the 1900 Paris Exposition his team made a historical display. They presented in many charts the situation of Black people in Georgia and the US in general. The timelessness of these posters provoked <a href='https://twitter.com/ajstarks' target='_blank'>Anthony Starks</a>, <a href='https://twitter.com/AlDatavizguy' target='_blank'>Allen Hillery</a> and <a href='https://twitter.com/sqlsekou' target='_blank'>Sekou Tyler</a> to create the <a href='https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge' target='_blank'>#DuBoisChallenge</a>. The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in <code>R</code> using <code>ggplot</code> and many extensions. Furthermore, like Du Bois I used this opportunity to talk about racial inequality in my homeland, Brazil.
+    </div>
+</div>
 
 <!-- Container that shows the images -->
 <div id='over-container'>
@@ -172,7 +246,6 @@ $(document).ready(function(){
 </div>
 
 <!-- Gallery menu -->
-
 <div id='gallery'><div>
 
     <svg class='tip-bg'><rect></svg>

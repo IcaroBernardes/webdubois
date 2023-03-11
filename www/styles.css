@@ -1,16 +1,113 @@
+/* Makes the 'Teko' font available */
+@font-face {
+  font-family: 'Teko';
+  src:  url('fonts/Teko.woff') format('woff'), /* Modern Browsers */
+        url('fonts/Teko.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+/* Makes the 'Font Awesome 6 -  Brands' font available */
+@font-face {
+  font-family: 'FA6brands';
+  src:  url('fonts/FA6brands.woff') format('woff'), /* Modern Browsers */
+        url('fonts/FA6brands.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+/* Body container */
 body {
   max-width: 810px;
   width: 90%;
   margin-right: auto;
   margin-left: auto;
   background-color: hsl(38deg 26% 18%);
+  font-family: 'Teko', sans-serif;
+}
+
+/* Title section */
+#title-section {
+  width: 100%;
+  background-color: hsl(34deg 86% 86%);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#title {
+  width: calc(100% - 80px);
+  padding-right: 20px;
+  font-size: 45px;
+  line-height: 45px;
+}
+
+#subtitle {
+  font-size: 20px;
+}
+
+.glyphs {
+  font-family: 'FA6brands';
+  font-size: 15px;
+}
+
+#twt:before {
+  content: '\f099';
+}
+
+#ghb:before {
+  content: '\f09b';
+  margin-left: 20px;
+}
+
+#lkd:before {
+  content: '\f08c';
+  margin-left: 20px;
+}
+
+#more {
+  display: flex;
+}
+
+#more div {
+  font-size: 19px;
+  line-height: 17px;
+  padding-left: 10px;
+  width: 40px;
+  color: hsl(38deg 26% 18%);
+}
+
+#more svg {
+  width: 30px;
+  height: 30px;
+}
+
+#more svg circle {
+  r: 14px;
+  cx: 15px;
+  cy: 15px;
+  fill: hsl(34deg 100% 92%);
+  stroke: transparent;
+  stroke-width: 2px;
+}
+
+#more svg text {
+  font-size: 40px;
+  fill: hsl(38deg 26% 18%);
+  cursor: pointer;
+}
+
+#minus {
+  display: none;
+}
+
+#info {
+  display: none;
+  padding-top: 20px;
 }
 
 /* Container of images */
 #over-container {
   width: 580px;
-  height: 100vh;
-  padding: 20px 10px 0 20px;
+  height: 100%;
+  padding: 0 10px 0 20px;
   float: left;
   background-color: hsl(34deg 86% 86%);
 }
@@ -105,9 +202,8 @@ body {
 /* Menu gallery */
 #gallery {
   width: 230px;
-  height: 100vh;
+  height: 100%;
   float: left;
-  padding-top: 20px;
   background-color: hsl(34deg 86% 86%);
 }
 
@@ -120,6 +216,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow-y: scroll;
+  row-gap: 15px;
 }
 
 .item {
