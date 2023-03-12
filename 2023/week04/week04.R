@@ -40,7 +40,7 @@ fonts_register <- systemfonts::registry_fonts()
 font_brands_glyphs <- "Font Awesome 6 Brands Regular"
 
 ## Loads the data. Data downloaded and picked from Table 1.1 of the
-## "Mercado de trabalho e distribuição de renda" section of this IBGE page:
+## "Introdução" section of this IBGE page:
 ## https://www.ibge.gov.br/estatisticas/sociais/populacao/25844-desigualdades-sociais-por-cor-ou-raca.html?=&t=resultados
 pop <- readxl::read_xlsx("2023/week04/data.xlsx", sheet = "pop")
 

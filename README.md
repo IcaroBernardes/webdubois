@@ -1,4 +1,4 @@
-# webdubois: W.E.B. Du Bois Challenge plots <img align="right" src="https://github.com/IcaroBernardes/webdubois/blob/main/portrait.jpg" alt="logo" width="200">
+# webdubois: W.E.B. Du Bois Challenge plots <img align="right" src="https://github.com/IcaroBernardes/webdubois/blob/main/www/portrait.jpg" alt="logo" width="200">
 
 [W.E.B. Du Bois](https://en.wikipedia.org/wiki/W._E._B._Du_Bois) (February 23, 1868 – August 27, 1963) was an American sociologist, socialist, historian
 and Pan-Africanist civil rights activist (*Source: Wikipedia*). 
@@ -10,6 +10,13 @@ whatsoever. I chose to make these charts in `R` using `ggplot` and many extensio
 inequality in my homeland, Brazil.
 
 ## 2023
+### Week 06 - Incarcerated people by race in Brazil
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week06/week06.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week06/incarcerated.png)
+
 ### Week 05 - Rio Samba Schools parade winners
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week05/week05.R
 
@@ -24,14 +31,14 @@ inequality in my homeland, Brazil.
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week04/distribution.png)
 
-### Week 03 - Racial inequality (Homicide victims by race and sex)
+### Week 03 - Homicide victims by race and sex
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week03/week03.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1629131002743250945
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week03/victims.png)
 
-### Week 02 - Racial inequality (Real income of Black Brazilians)
+### Week 02 - Real average income of Black Brazilians
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week02/week02.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1625930883755540496
@@ -39,77 +46,77 @@ inequality in my homeland, Brazil.
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week02/income.png)
 
 ## 2022
-### Week 10 - Racial inequality (Black candidates and elected)
+### Week 10 - Proportion of Blacks and non-Blacks candidates and elected for the Lower House of the Brazilian Congress
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week10/week10.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1514299766271721475
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week10/elections.png)
 
-### Week 09 - Racial inequality (Occupied blacks in Brazil by educational level)
+### Week 09 - Occupied Blacks per 1000 people by educational level in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week09/week09.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1511072124357775367
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week09/job.png)
 
-### Week 08 - Racial inequality (Rate of homicides)
+### Week 08 - Rate of homicides of Blacks by per 100K people
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week08/week08.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1508975839618215940
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week08/violence.png)
 
-### Week 07 - Racial inequality (Political candidatures financing)
+### Week 07 - Capital of candidatures for the Lower House of the Brazilian Congress by race and state
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week07/week07.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1506334651538972681
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week07/congress.png)
 
-### Week 06 - Racial inequality (Illiteracy)
+### Week 06 - Illiteracy rate of Black people in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week06/week06.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1503890070029451270
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week06/illiteracy.png)
 
-### Week 05 - Racial inequality (Managerial job positions)
+### Week 05 - Participation in managerial positions by race in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week05/week05.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1501323176088780800
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week05/managers.png)
 
-### Week 04 - Racial inequality (Real income of people in informal jobs)
+### Week 04 - Real income of Black people whose main work is informal
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week04/week04.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1498459321243475968
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week04/incomes.png)
 
-### Week 03 - Racial inequality (Mobile phones and internet access)
+### Week 03 - Access of Black people to a personal mobile phone and internet in the states of Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week03/week03.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1496229656902926336
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week03/access.png)
 
-### Week 02 - Racial inequality (Real income of households)
+### Week 02 - Real monthly income per capita of Black households in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week02/week02.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1493768750755041285
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week02/income.png)
 
-### Week 01 - Racial inequality (The Black Diaspora)
+### Week 01 - The Afro-Brazilians
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week01/week01.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1516517164727119877
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2022/week01/enslaved.png)
 
-### Week 00 - Tuskegee Airmen
+### Week 00 - Cumulative aerial victories credited to pilots of the Tuskegee Airmen
 💻 **Code:** https://github.com/IcaroBernardes/webdubois/blob/main/2022/week00/week00.R
 
 🌍 **Twitter thread:** https://twitter.com/IcaroBSC/status/1491559819656024071

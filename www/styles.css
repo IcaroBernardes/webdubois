@@ -14,8 +14,7 @@
 
 /* Body container */
 body {
-  max-width: 810px;
-  width: 90%;
+  width: 850px;
   margin-right: auto;
   margin-left: auto;
   background-color: hsl(38deg 26% 18%);
@@ -26,26 +25,29 @@ body {
 #title-section {
   width: 100%;
   background-color: hsl(34deg 86% 86%);
-  padding: 20px;
+  padding: 30px;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
 }
 
 #title {
-  width: calc(100% - 80px);
-  padding-right: 20px;
-  font-size: 45px;
-  line-height: 45px;
+  width: 100%;
+  font-size: 55px;
+  line-height: 55px;
 }
 
 #subtitle {
-  font-size: 20px;
+  width: 85%;
+  margin-top: 10px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .glyphs {
   font-family: 'FA6brands';
-  font-size: 15px;
+  font-size: 21px;
 }
 
 #twt:before {
@@ -54,12 +56,10 @@ body {
 
 #ghb:before {
   content: '\f09b';
-  margin-left: 20px;
 }
 
 #lkd:before {
   content: '\f08c';
-  margin-left: 20px;
 }
 
 #more {
@@ -74,24 +74,29 @@ body {
   color: hsl(38deg 26% 18%);
 }
 
-#more svg {
+.canvas-circle {
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
-#more svg circle {
+.canvas-circle circle {
   r: 14px;
   cx: 15px;
   cy: 15px;
   fill: hsl(34deg 100% 92%);
   stroke: transparent;
   stroke-width: 2px;
+  transition: all .5s;
+}
+
+.canvas-circle text {
+  fill: hsl(38deg 26% 18%);
+  user-select: none;
 }
 
 #more svg text {
   font-size: 40px;
-  fill: hsl(38deg 26% 18%);
-  cursor: pointer;
 }
 
 #minus {
@@ -103,11 +108,22 @@ body {
   padding-top: 20px;
 }
 
+#info div {
+  display: flex;
+  column-gap: 20px;
+}
+
+#portrait {
+  height: 190px;
+  border-radius: 22px;
+  border: 3px hsl(38deg 26% 18%) solid;
+}
+
 /* Container of images */
 #over-container {
-  width: 580px;
+  width: 620px;
   height: 100%;
-  padding: 0 10px 0 20px;
+  padding: 0 10px 0 30px;
   float: left;
   background-color: hsl(34deg 86% 86%);
 }
@@ -199,24 +215,52 @@ body {
   transform: rotate(135deg);
 }
 
-/* Menu gallery */
-#gallery {
+/* Gallery menu */
+#over-gallery {
   width: 230px;
   height: 100%;
   float: left;
   background-color: hsl(34deg 86% 86%);
 }
 
-#gallery div {
+#gallery {
   width: 230px;
-  height: 700px;
-  padding: 10px 0;
+  height: 580px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   overflow-y: scroll;
   row-gap: 15px;
+}
+
+#over-gallery div.up, #over-gallery div.down {
+  position: relative;
+  z-index: 2000;
+  width: 230px;
+  height: 60px;
+  background-color: hsl(34deg 86% 86%);
+}
+
+#over-gallery div.up {
+  padding: 0px 100px 20px 100px;
+}
+
+#over-gallery div.down {
+  padding: 20px 100px 0px 100px;
+}
+
+#over-gallery .canvas-circle text {
+  font-size: 30px;
+  pointer-events: none;
+}
+
+#over-gallery .canvas-circle.up text {
+  transform: rotate(-90deg);
+}
+
+#over-gallery .canvas-circle.down text {
+  transform: rotate(90deg);
 }
 
 .item {

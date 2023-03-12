@@ -39,7 +39,8 @@ $(document).ready(function(){
     y23wk02:'',
     y23wk03:'',
     y23wk04:'',
-    y23wk05:''
+    y23wk05:'',
+    y23wk06:''
   };
   
   // Object of urls of the original images
@@ -54,7 +55,8 @@ $(document).ready(function(){
     y23wk02:'',
     y23wk03:'',
     y23wk04:'',
-    y23wk05:''
+    y23wk05:'',
+    y23wk06:''
   };
   
   // Object of urls of the new images
@@ -64,7 +66,7 @@ $(document).ready(function(){
   
   // Gets the id's of the clicked object and uses it to search through
   // the arrays and defines the urls of the new background images
-  $('#gallery').click(function(e) {
+  $('#over-gallery').click(function(e) {
     const idimage = e.target.id;
     
     // Guarantees that the change only happens if an object that has an id is clicked
@@ -81,7 +83,7 @@ to make the tooltips -->
 <script>
 $(document).ready(function(){
   // Array of image id's
-  const imageids = ["y22wk09", "y22wk10", "y23wk02", "y23wk03", "y23wk04", "y23wk05"];
+  const imageids = ["y22wk09", "y22wk10", "y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06"];
   
   // Empty object of names for the original images
   const origimages = {
@@ -90,7 +92,8 @@ $(document).ready(function(){
     y23wk02:'',
     y23wk03:'',
     y23wk04:'',
-    y23wk05:''
+    y23wk05:'',
+    y23wk06:''
   };
   
   // Object of urls of the original images
@@ -128,12 +131,35 @@ $(document).ready(function(){
 });
 </script>
 
-<!-- E -->
+<!-- Binds clicking on the up and down buttons to
+scrolling behaviour inside the gallery menu -->
 <script>
 $(document).ready(function(){
-  $("#more > *").hover(function() {
-    $("#more > svg > circle").css("stroke", "red");
-    $("#more > svg > circle").css("stroke", "transparent");
+  $("svg.up").click(function() {
+    document.querySelector("#gallery").scrollBy({
+      top: -200,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
+  $("svg.down").click(function() {
+    document.querySelector("#gallery").scrollBy({
+      top: 200,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
+});
+</script>
+
+<!-- Binds hover effects to each svg circle -->
+<script>
+$(document).ready(function(){
+  $(".canvas-circle").mouseenter(function() {
+    $( this ).find("circle").css("stroke", "hsl(38deg 26% 18%)");
+  });
+  $(".canvas-circle").mouseleave(function() {
+    $( this ).find("circle").css("stroke", "transparent");
   });
 });
 </script>
@@ -156,21 +182,25 @@ $(document).ready(function(){
         <a href='https://www.linkedin.com/in/icarobsc/' target='_blank'>
           <span class='glyphs' id='lkd'></span> @icarobsc
         </a>
+        <div id='more'>
+          <svg viewBox="0 0 30 30" class='canvas-circle'>
+            <circle></circle>
+            <text x="7" y="27" id='plus'>+</text>
+            <text x="9" y="27" id='minus'>-</text>
+          </svg>
+          <div>MORE INFO:</div>
+        </div>
       </div>
     </div>
-    <div id='more'>
-      <svg viewBox="0 0 30 30">
-        <circle></circle>
-        <text x="7" y="27" id='plus'>+</text>
-        <text x="9" y="27" id='minus'>-</text>
-      </svg>
-      <div>MORE INFO:</div>
-    </div>
-    <div id='info'>
-    <a href='https://en.wikipedia.org/wiki/W._E._B._Du_Bois' target='_blank'>W.E.B. Du Bois</a> (February 23, 1868 – August 27, 1963) was an American sociologist, socialist, historian and Pan-Africanist civil rights activist <span style='font-style:italic;'>(Source: Wikipedia)</span>.
-    <br><br>
-    In the 1900 Paris Exposition his team made a historical display. They presented in many charts the situation of Black people in Georgia and the US in general. The timelessness of these posters provoked <a href='https://twitter.com/ajstarks' target='_blank'>Anthony Starks</a>, <a href='https://twitter.com/AlDatavizguy' target='_blank'>Allen Hillery</a> and <a href='https://twitter.com/sqlsekou' target='_blank'>Sekou Tyler</a> to create the <a href='https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge' target='_blank'>#DuBoisChallenge</a>. The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in <code>R</code> using <code>ggplot</code> and many extensions. Furthermore, like Du Bois I used this opportunity to talk about racial inequality in my homeland, Brazil.
-    </div>
+    
+    <div id='info'><div>
+      <span>
+        <a href='https://en.wikipedia.org/wiki/W._E._B._Du_Bois' target='_blank'>W.E.B. Du Bois</a> (February 23, 1868 – August 27, 1963) was an American sociologist, socialist, historian and Pan-Africanist civil rights activist <span style='font-style:italic;'>(Source: Wikipedia)</span>.
+        <br><br>
+        In the 1900 Paris Exposition his team made a historical display. They presented in many charts the situation of Black people in Georgia and the US in general. The timelessness of these posters provoked <a href='https://twitter.com/ajstarks' target='_blank'>Anthony Starks</a>, <a href='https://twitter.com/AlDatavizguy' target='_blank'>Allen Hillery</a>, <a href='https://twitter.com/sqlsekou' target='_blank'>Sekou Tyler</a> and <a href='https://twitter.com/menscuriosa' target='_blank'>Chimdi Nwosu</a> to create and mantain the <a href='https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge' target='_blank'>#DuBoisChallenge</a>. The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in <code>R</code> using <code>ggplot</code> and many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
+      </span>
+      <img src='www/portrait.jpg' id='portrait'>
+    </div></div>
 </div>
 
 <!-- Container that shows the images -->
@@ -184,8 +214,13 @@ $(document).ready(function(){
 </div>
 
 <!-- Gallery menu -->
-<div id='gallery'><div>
-
+<div id='over-gallery'>
+  <div class='up'><svg viewBox="0 0 30 30" class='canvas-circle up'>
+    <circle></circle>
+    <text x="-22" y="24">></text>
+  </svg></div>
+  
+  <div id='gallery'>
     <svg class='tip-bg'><rect></svg>
     <img src='www/new/thumb_y22wk09.png' class='item' id='y22wk09'>
 
@@ -204,7 +239,16 @@ $(document).ready(function(){
     <svg class='tip-bg'><rect></svg>
     <img src='www/new/thumb_y23wk05.png' class='item' id='y23wk05'>
 
-</div></div>
+    <svg class='tip-bg'><rect></svg>
+    <img src='www/new/thumb_y23wk06.png' class='item' id='y23wk06'>
+  </div>
+  
+  <div class='down'><svg viewBox="0 0 30 30" class='canvas-circle down'>
+    <circle></circle>
+    <text x="10" y="-5">></text>
+  </svg></div>
+  
+</div>
 
 <!-- Connects to a bundle of Bootstrap and Popper through cdnjs -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
