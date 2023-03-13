@@ -76,9 +76,9 @@ races <- races |>
   dplyr::arrange(race)
 
 ## Defines some layout constants
-a <- 0.5
-e <- 1.5E+05
-phi <- pi/8
+w <- 1.5E+05 ### width of the rectangles
+phi <- pi/4 ### Angle between 
+a <- tan((pi/2) - phi) ### 
 
 ## Defines coordinates for the corners of the bars
 coord0 <- races |> 
@@ -92,8 +92,8 @@ for (i in 1:nrow(races)) {
   
   x0 = lag(coord0$end_x, default = 0)[i]
   y0 = lag(coord0$end_y, default = 0)[i]
-  x1 = lag(coord1$end_x, default = x0 - e*cos(phi))[i]
-  y1 = lag(coord1$end_y, default = y0 + e*sin(phi))[i]
+  x1 = lag(coord1$end_x, default = x0 - w*cos(phi))[i]
+  y1 = lag(coord1$end_y, default = y0 + w*sin(phi))[i]
   
   A0 = (1 + a^2)
   B0 = -2*(x0 + a*y0)
@@ -103,8 +103,8 @@ for (i in 1:nrow(races)) {
   
   xend0 = (-B0 + sqrt(del0))/(2*A0)
   yend0 = a*xend0
-  xend1 = xend0 - e*cos(phi)
-  yend1 = yend0 + e*sin(phi)
+  xend1 = xend0 - w*cos(phi)
+  yend1 = yend0 + w*sin(phi)
   
   coord0$end_x[i] = xend0
   coord0$end_y[i] = yend0
@@ -173,10 +173,15 @@ p <- coords_joined |>
   geom_polygon(aes(x = x, y = y, fill = race),
                color = "black", linewidth = 1, key_glyph = "point") +
   
+  ### Places the message (by hand)
   ggtext::geom_richtext(
-    aes(x = 10000, y = 373000, label = message), vjust = 1, family = "Teko",
+    aes(x = 15000, y = 580000, label = message), vjust = 1, family = "Teko",
     size = 6.5, lineheight = 1.5, fill = NA, label.colour = NA
   ) +
+  
+  ### Ensures equal proportions on the axes
+  ### in order to not distort the rectangles
+  coord_equal()+
   
   ### Places the title
   labs(title = title) +
