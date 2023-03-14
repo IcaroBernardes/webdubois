@@ -73,6 +73,9 @@ $(document).ready(function(){
     if (idimage.length != 0) {
       $('.background-img').css('background-image', `url(${newimages[idimage]})`);
       $('.foreground-img').css('background-image', `url(${origimages[idimage]})`);
+      
+      // Scrolls until the top of the container is atop the page
+      document.querySelector("#container").scrollIntoView({behavior: "smooth"});
     }
   });
 });

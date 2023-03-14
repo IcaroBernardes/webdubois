@@ -1,12 +1,16 @@
 # 0. Initial setup ##########
 ## Loads packages
+library(colorspace)
 library(dplyr)
+library(ggfx)
 library(ggplot2)
 library(ggtext)
 library(ggview)
 library(glue)
 library(junebug)
+library(purrr)
 library(readr)
+library(scales)
 library(stringr)
 library(systemfonts)
 library(tidyr)
@@ -39,6 +43,7 @@ font_brands_glyphs <- "Font Awesome 6 Brands Regular"
 ## https://www.gov.br/depen/pt-br/servicos/sisdepen/relatorios-e-manuais/bases-de-dados
 df <- readr::read_csv2("2023/week06/data.csv")
 
+# 1. Data handling ##########
 ## Filters only prisons that are able to get race data in some way.
 ## Keeps only variables that show the amount of prisioners by race
 races <- df |> 
@@ -77,8 +82,8 @@ races <- races |>
 
 ## Defines some layout constants
 w <- 1.5E+05 ### width of the rectangles
-phi <- pi/4 ### Angle between 
-a <- tan((pi/2) - phi) ### 
+phi <- pi/4 ### Complementary angle of the rectangles
+a <- tan((pi/2) - phi) ### Slope of the rectangles boundaries
 
 ## Defines coordinates for the corners of the bars
 coord0 <- races |> 
@@ -137,7 +142,61 @@ coord1 <- coord1 |>
 coords_joined <- dplyr::bind_rows(coord0, coord1) |> 
   dplyr::arrange(race)
 
-# 2. Plot production ##########
+# 2. Brush strokes simulation ##########
+## Defines the number of brush strokes for
+## each rectangle based on the number of prisoners
+brushstrokes <- coords_joined |> 
+  dplyr::mutate(nbrushes = scales::rescale(people, to = c(1,1000)),
+                nbrushes = round(nbrushes)) |> 
+  dplyr::group_by(race, nbrushes) |> 
+  tidyr::nest()
+
+## Creates a tibble of random x values limited by the rectangles dimensions
+set.seed(13)
+brushstrokes <- brushstrokes |> 
+  dplyr::mutate(
+    data = purrr::map2(data, nbrushes, function(df_grouped, n) {
+      
+      df_grouped |> 
+        dplyr::slice(1:2) |> 
+        dplyr::summarise(
+          rand = runif(n = n, min = 0.01, max = 0.99),
+          x = rand*min(x) + (1-rand)*max(x)
+        )
+      
+    })
+  ) |>
+  tidyr::unnest(cols = data) |> 
+  dplyr::ungroup()
+
+## Defines the y values that pair with the x values in the lower boundaries
+brushstrokes <- brushstrokes |> dplyr::mutate(y = a*x)
+
+## Defines random widths that limit the brush strokes
+set.seed(42)
+brushstrokes <- brushstrokes |> 
+  dplyr::mutate(w1 = runif(n = n(), min = 0.01, max = 0.99)*w,
+                w2 = runif(n = n(), min = 0.01, max = 0.99)*w)
+
+## Creates the coordinates that define the brush strokes
+brushstrokes <- brushstrokes |> 
+  dplyr::transmute(race = race,
+                   x1 = x - w1*cos(phi),
+                   y1 = y + w1*sin(phi),
+                   x2 = x - w2*cos(phi),
+                   y2 = y + w2*sin(phi))
+
+## Defines the amount of relative lightness/darkness each
+## brush stroke will have. Separates the data for light/dark strokes
+set.seed(10)
+brushstrokes <- brushstrokes |> 
+  dplyr::mutate(alpha = runif(n = n(), min = 0.05, max = 0.45))
+set.seed(33)
+rows <- sample.int(nrow(brushstrokes), round(nrow(brushstrokes)/2))
+lightstrokes <- brushstrokes |> dplyr::slice(rows)
+darkstrokes <- brushstrokes |> dplyr::slice(-rows)
+
+# 3. Plot production ##########
 ## Creates the title
 title <- "
 <span style='font-size:110px;'>INCARCERATED PEOPLE BY RACE IN BRAZIL (2ND HALF OF 2021).</span>
@@ -173,6 +232,26 @@ p <- coords_joined |>
   geom_polygon(aes(x = x, y = y, fill = race),
                color = "black", linewidth = 1, key_glyph = "point") +
   
+  ### Places lines that simulate the brush strokes.
+  ### Will throw a warning because of the use of "fill" in geom_segment.
+  ### This steps adds a considerate amount of effort to showing and saving.
+  ### It may be better to run ggview() without it and
+  ### only include this section when saving the plot.
+  ggfx::with_blur(
+    x = geom_segment(
+      aes(x = x1, xend = x2, y = y1, yend = y2, fill = race, alpha = I(alpha),
+          color = after_scale(colorspace::lighten(fill, 1-alpha))),
+      linewidth = 0.5, data = lightstrokes),
+    sigma = 15
+  ) +
+  ggfx::with_blur(
+    x = geom_segment(
+      aes(x = x1, xend = x2, y = y1, yend = y2, fill = race, alpha = I(alpha),
+          color = after_scale(colorspace::darken(fill, 2*alpha))),
+      linewidth = 0.5, data = darkstrokes),
+    sigma = 15
+  ) +
+  
   ### Places the message (by hand)
   ggtext::geom_richtext(
     aes(x = 15000, y = 580000, label = message), vjust = 1, family = "Teko",
@@ -181,7 +260,7 @@ p <- coords_joined |>
   
   ### Ensures equal proportions on the axes
   ### in order to not distort the rectangles
-  coord_equal()+
+  coord_equal() +
   
   ### Places the title
   labs(title = title) +
@@ -217,8 +296,9 @@ p <- coords_joined |>
   ) 
 
 ## Shows an accurate preview of the plot
-ggview::ggview(p, device = "png", dpi = 320,
-               units = "in", width = 22, height = 28)
+## Uncomment these lines when running the plot without the brush strokes section
+# ggview::ggview(p, device = "png", dpi = 320,
+#                units = "in", width = 22, height = 28)
 
 ## Saves the plot
 ggsave("2023/week06/incarcerated.png", plot = p, device = "png", dpi = 320,

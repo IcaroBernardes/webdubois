@@ -41,6 +41,7 @@ font_brands_glyphs <- "Font Awesome 6 Brands Regular"
 ## Udpated to 2023
 df <- readxl::read_xlsx("2023/week05/data.xlsx")
 
+# 1. Data handling ##########
 ## Defines coordinates of the squares (by hand)
 nudge <- 5
 df <- df |> 
