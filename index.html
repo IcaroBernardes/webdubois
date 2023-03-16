@@ -74,109 +74,13 @@
 <!-- Connects to the CSS -->
 <link rel="stylesheet" href="www/styles.css">
 
-<!-- JS script that connects slider input
-position to the width of the foreground image -->
+<!-- Declares a global Array that lists identifiers for the plots -->
 <script>
-$(document).ready(function(){
-  // .on("input change") responds to changes on the input while dragging the mouse
-  // .change() only triggers once the mouse stops being dragged
-  $("#slider").on("input change", (e)=>{
-    const sliderPos = e.target.value;
-    // Update the width of the foreground image
-    $('.foreground-img').css('width', `${sliderPos}%`);
-    // Update the position of the slider button
-    $('#slider-button').css('left', `calc(${sliderPos}% - 18px)`);
-  });
-});
-</script>
-
-<!-- JS script that connects clicking on the gallery menu
-to which images are shown in the container -->
-<script>
-$(document).ready(function(){
-  // Empty object of names for the original images
-  const origimages = {
-    y22wk09:'',
-    y22wk10:'',
-    y23wk02:'',
-    y23wk03:'',
-    y23wk04:'',
-    y23wk05:'',
-    y23wk06:''
-  };
-  
-  // Object of urls of the original images
-  for(let item of Object.keys(origimages)) {
-    origimages[item] = 'www/dubois/' + item + '.jpg'
-  };
-  
-  // Empty object of names for the new images
-  const newimages = {
-    y22wk09:'',
-    y22wk10:'',
-    y23wk02:'',
-    y23wk03:'',
-    y23wk04:'',
-    y23wk05:'',
-    y23wk06:''
-  };
-  
-  // Object of urls of the new images
-  for(let item of Object.keys(newimages)) {
-    newimages[item] = 'www/new/' + item + '.png'
-  };
-  
-  // Gets the id's of the clicked object and uses it to search through
-  // the arrays and defines the urls of the new background images
-  $('#over-gallery').click(function(e) {
-    const idimage = e.target.id;
-    
-    // Guarantees that the change only happens if an object that has an id is clicked
-    if (idimage.length != 0) {
-      $('.background-img').css('background-image', `url(${newimages[idimage]})`);
-      $('.foreground-img').css('background-image', `url(${origimages[idimage]})`);
-      
-      // Scrolls until the top of the container is atop the page
-      document.querySelector("#container").scrollIntoView({behavior: "smooth"});
-    }
-  });
-});
-</script>
-
-<!-- JS script that binds original and new plots
-to make the tooltips -->
-<script>
-$(document).ready(function(){
-  // Array of image id's
-  const imageids = ["y22wk09", "y22wk10", "y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06"];
-  
-  // Empty object of names for the original images
-  const origimages = {
-    y22wk09:'',
-    y22wk10:'',
-    y23wk02:'',
-    y23wk03:'',
-    y23wk04:'',
-    y23wk05:'',
-    y23wk06:''
-  };
-  
-  // Object of urls of the original images
-  for(let item of Object.keys(origimages)) {
-    origimages[item] = 'www/dubois/thumb_' + item + '.jpg'
-  };
-  
-  // Iterates along the id's and adds the original images as tooltips
-  for (let i = 0; i < imageids.length; i++) {
-    const el = "#" + imageids[i];
-    $(el).tooltip({
-        animated: "fade",
-        placement: "left",
-        html: true,
-        title: $("<div>").html("<img src='"+origimages[imageids[i]]+"' width='100%'>")
-      })
-  }
-});
+var imageids = [
+"y22wk01", "y22wk02", "y22wk03", "y22wk04", "y22wk05",
+"y22wk06", "y22wk07", "y22wk08", "y22wk09", "y22wk10",
+"y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06"
+];
 </script>
 
 <!-- Establishes triggers to show and hide info with a slide animation.
@@ -196,27 +100,6 @@ $(document).ready(function(){
 });
 </script>
 
-<!-- Binds clicking on the up and down buttons to
-scrolling behaviour inside the gallery menu -->
-<script>
-$(document).ready(function(){
-  $("svg.up").click(function() {
-    document.querySelector("#gallery").scrollBy({
-      top: -200,
-      left: 0,
-      behavior: "smooth",
-    });
-  });
-  $("svg.down").click(function() {
-    document.querySelector("#gallery").scrollBy({
-      top: 200,
-      left: 0,
-      behavior: "smooth",
-    });
-  });
-});
-</script>
-
 <!-- Binds hover effects to each svg circle -->
 <script>
 $(document).ready(function(){
@@ -229,11 +112,167 @@ $(document).ready(function(){
 });
 </script>
 
+<!-- JS script that connects slider input
+position to the width of the foreground image -->
+<script>
+$(document).ready(function(){
+  // .on("input change") responds to changes on the input while dragging the mouse
+  // .change() only triggers once the mouse stops being dragged
+  $("#slider").on("input change", (e)=>{
+    const sliderPos = e.target.value;
+    // Update the width of the foreground image
+    $('.foreground-img').css('width', `${sliderPos}%`);
+    // Update the position of the slider button
+    $('#slider-button').css('left', `calc(${sliderPos}% - 18px)`);
+  });
+});
+</script>
+
+<!-- JS script that connects clicking on the gallery menu
+to which images are shown in the comparative display -->
+<script>
+$(document).ready(function(){
+
+  // Initiates an object to hold url of the original images
+  let origimages = {};
+  
+  // Fills the object with the urls by iterating through 'imageids'
+  imageids.map((el, index) => {
+    return origimages[imageids[index]] = 'www/dubois/' + imageids[index] + '.png';
+  });
+  
+  // Initiates an object to hold url of the new images
+  let newimages = {};
+  
+  // Fills the object with the urls by iterating through 'imageids'
+  imageids.map((el, index) => {
+    return newimages[imageids[index]] = 'www/new/' + imageids[index] + '.png';
+  });
+  
+  // Gets the 'data' attribute of the clicked object and uses it to search
+  // through the arrays and defines the new urls of the background images
+  $('#menu-section').click(function(e) {
+    const idimage = $(e.target).attr('data');
+    
+    // Guarantees that the change only happens if an object that has an id is clicked
+    if (idimage.length != 0) {
+      $('.background-img').css('background-image', `url(${newimages[idimage]})`);
+      $('.foreground-img').css('background-image', `url(${origimages[idimage]})`);
+      
+      // Scrolls until the top of the comparative display is atop the page
+      document.querySelector("#comparative-display").scrollIntoView({behavior: "smooth"});
+    }
+  });
+});
+</script>
+
+<!-- JS script that binds original and new plots
+to make the tooltips -->
+<script>
+$(document).ready(function(){
+  
+  // Empty object of names for the original images
+  const origimages = {
+    y22wk09:'',
+    y22wk10:'',
+    y23wk02:'',
+    y23wk03:'',
+    y23wk04:'',
+    y23wk05:'',
+    y23wk06:''
+  };
+  
+  // Object of urls of the original images
+  for(let item of Object.keys(origimages)) {
+    origimages[item] = 'www/dubois/thumb_' + item + '.png'
+  };
+  
+  // Iterates along the id's and adds the original images as tooltips
+  for (let i = 0; i < imageids.length; i++) {
+    const el = "#" + imageids[i];
+    $(el).tooltip({
+        animated: "fade",
+        placement: "left",
+        html: true,
+        title: $("<div>").html("<img src='"+origimages[imageids[i]]+"' width='100%'>")
+      })
+  }
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  // Creates the HTML structure for the thumbnails of the gallery menu
+  let galleryHTML = imageids.map((el) => {
+    return "<div class='item'>" +
+            "<img src='www/new/thumb_" + el + ".png' class='thumb-new' data='" + el + "'>" +
+            "<img src='www/dubois/thumb_" + el + ".png' class='thumb-original' data='" + el + "'>" +
+          "</div>";
+  });
+  
+  // Applies the string to the gallery as a HTML structure
+  $("#gallery").html(galleryHTML)
+  
+});
+</script>
+
+<!-- Binds clicking on the buttons to
+scrolling behaviour inside the gallery menu -->
+<script>
+$(document).ready(function(){
+  // Defines the scroll amount in px
+  let scrl = 240;
+
+  $(".menu-button.lefty").click(function() {
+    // Scrolls items to the left
+    $(this).siblings("#gallery")[0].scrollBy({
+      top: 0,
+      left: -scrl,
+      behavior: "smooth",
+    });
+    
+    // Scrolls the background image to the left
+    let xpos = $(this).siblings("#gallery").css("background-position-x");
+    xpos = parseInt(xpos) + scrl;
+    $(this).siblings("#gallery").css("background-position-x", xpos);
+  });
+  
+  $(".menu-button.righty").click(function() {
+    // Scrolls items to the right
+    $(this).siblings("#gallery")[0].scrollBy({
+      top: 0,
+      left: scrl,
+      behavior: "smooth",
+    });
+    
+    // Scrolls the background image to the right
+    let xpos = $(this).siblings("#gallery").css("background-position-x");
+    xpos = parseInt(xpos) - scrl;
+    $(this).siblings("#gallery").css("background-position-x", xpos);
+  });
+});
+</script>
+
+<!-- Binds hover effects to the pairs of thumbnails -->
+<script>
+$(document).ready(function(){
+  $(".thumb-new, .thumb-original").hover(
+    function() {
+      $( this ).css("border-color", "#d18520");
+      $( this ).siblings().css("border-color", "#d18520");
+    }, function() {
+      $( this ).css("border-color", "transparent");
+      $( this ).siblings().css("border-color", "transparent");
+    }
+  );
+});
+</script>
+
 </head>
 
-<body>
+<body><div id='container'>
 
-<!-- Title section with info on the project -->
+<!-- Title section -->
 <div id='title-section'>
     <div id='title'>
       WEBDUBOIS: VISUALIZING RACIAL INEQUALITY AND BLACK ACHIEVEMENTS IN BRAZIL
@@ -266,57 +305,47 @@ $(document).ready(function(){
       </span>
       <img src='www/portrait.jpg' id='portrait'>
     </div></div>
+    
+    <div id='bar'>
+      <hr/>
+      <div></div>
+      <image src="www/africa.png"/>
+    </div>
 </div>
 
-<!-- Container that shows the images -->
-<div id='over-container'>
-<div id='container'>
+
+<!-- Comparative section -->
+<div id='comparative-section'>
+  <div id='comparative-display'>
     <div class='img background-img'></div>
     <div class='img foreground-img'></div>
     <input type="range" min="1" max="100" value="50" class="slider" name='slider' id="slider">
     <div id='slider-button'></div>
-</div>
-</div>
-
-<!-- Gallery menu -->
-<div id='over-gallery'>
-  <div class='up'><svg viewBox="0 0 30 30" class='canvas-circle up'>
-    <circle></circle>
-    <text x="-22" y="24">></text>
-  </svg></div>
-  
-  <div id='gallery'>
-    <svg class='tip-bg'><rect></svg>
-    <img src='www/new/thumb_y22wk09.png' class='item' id='y22wk09'>
-
-    <svg class='tip-bg'><rect></svg>
-    <img src='www/new/thumb_y22wk10.png' class='item' id='y22wk10'>
-
-    <svg class='tip-bg'><rect></svg>
-    <img src='www/new/thumb_y23wk02.png' class='item' id='y23wk02'>
-
-    <svg class='tip-bg'><rect></svg>
-    <img src='www/new/thumb_y23wk03.png' class='item' id='y23wk03'>
-
-    <svg class='tip-bg'><rect></svg>
-    <img src='www/new/thumb_y23wk04.png' class='item' id='y23wk04'>
-
-    <svg class='tip-bg'><rect></svg>
-    <img src='www/new/thumb_y23wk05.png' class='item' id='y23wk05'>
-
-    <svg class='tip-bg'><rect></svg>
-    <img src='www/new/thumb_y23wk06.png' class='item' id='y23wk06'>
   </div>
-  
+</div>
+
+<!-- Menu section -->
+<div id='menu-section'>
+
+<div id='menu-items'>
+<!--
+  <div class='up'><svg viewBox="0 0 30 30" class='canvas-circle up'>
+    <circle/>
+    <text x="-22" y="24">></text>
+  </svg></div>-->
+  <div class='menu-button lefty'>&#x1F890;</div>
+  <div id='gallery'></div>
+  <div class='menu-button righty'>&#x1F892;</div>
+  <!--
   <div class='down'><svg viewBox="0 0 30 30" class='canvas-circle down'>
     <circle></circle>
     <text x="10" y="-5">></text>
-  </svg></div>
-  
+  </svg></div>-->
+</div> 
 </div>
 
 <!-- Connects to a bundle of Bootstrap and Popper through cdnjs -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-</body>
+</div></body>
 </html>
