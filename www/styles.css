@@ -39,12 +39,13 @@ a:not([href]):not([tabindex]):focus {
     outline: 0;
 }
 
-/* Main containers */
+/* Containers */
 body {
   width: 850px;
   margin-right: auto;
   margin-left: auto;
   background-color: hsl(38deg 26% 18%);
+  color: hsl(38deg 26% 18%);
   font-family: 'Teko', sans-serif;
 }
 
@@ -182,17 +183,122 @@ body {
   width: 20px;
 }
 
+/* Main content section */
+#main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#instructions {
+  width: 100%;
+  font-size: 25px;
+  line-height: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#instructions strong {
+  color: #d18520;
+}
+
+#menu-instructions {
+  width: 200px;
+}
+
+#comparative-instructions {
+  width: 480px;
+}
+
+/* Menu section */
+#menu-section {
+  width: 200px;
+}
+
+#menu-items {
+  width: 100%;
+  height: 611px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  align-items: center;
+}
+
+#gallery {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  row-gap: 20px;
+  padding: 20px;
+  height: 100%;
+  /*background-image: url(./wave.png);
+  background-repeat: repeat-x;
+  background-size: 140px;
+  background-position-x: 0;*/
+  transition: all .5s ease-in-out;
+}
+
+.item {
+  width: 120px;
+  position: relative;
+}
+
+.thumb-new {
+  width: 100px;
+}
+
+.thumb-original {
+  width: 50px;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+}
+
+.thumb-new, .thumb-original {
+  border: 4px solid transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.menu-button {
+  font-size: 120px;
+  line-height: 60px;
+  width: 35px;
+  height: 50px;
+  color: hsl(38deg 26% 18%);
+  user-select: none;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.menu-button.navup, .menu-button.navdown {
+  transform: rotate(90deg);
+}
+
+.menu-button.navup:hover {
+  text-shadow: 3px 0 2px hsl(38deg 26% 18%);
+  transform: rotate(90deg) translateX(-5px);
+}
+
+.menu-button.navdown:hover {
+  text-shadow: -3px 0 2px hsl(38deg 26% 18%);
+  transform: rotate(90deg) translateX(5px);
+}
+
 /* Comparative section */
 #comparative-section {
-  width: 550px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 480px;
 }
 
 #comparative-display {
   position: relative;
-  width: 550px;
-  height: 700px;
+  width: 480px;
+  height: 611px;
+  margin-top: 20px;
 }
 
 #comparative-display .img {
@@ -201,16 +307,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: 550px 100%;
+  background-size: 480px 100%;
   transition: background 0.5s ease-in;
 }
 
 #comparative-display .background-img {
-  background-image: url('./new/y23wk05.png');
+  background-image: url('./new/y22wk01.png');
 }
 
 #comparative-display .foreground-img {
-  background-image: url('./dubois/y23wk05.png');
+  background-image: url('./dubois/y22wk01.png');
   width: 50%;
 }
 
@@ -238,7 +344,7 @@ body {
   -webkit-appearance: none;
   appearance: none;
   width: 6px;
-  height: 700px;
+  height: 611px;
   background: white;
   cursor: pointer;
 }
@@ -276,76 +382,18 @@ body {
   transform: rotate(135deg);
 }
 
-/* Menu section */
-#menu-section {
+/* Details section */
+#details-section {
   width: 100%;
   padding: 50px 0;
+  font-size: 15px;
 }
 
-#menu-items {
-  width: 100%;
-  display: flex;
-  column-gap: 15px;
-  align-items: center;
+#original-title {
+  font-size: 30px;
 }
 
-#gallery {
-  display: flex;
-  overflow-x: hidden;
-  column-gap: 20px;
-  padding: 20px;
-  width: 100%;
-  background-image: url(./wave.svg);
-  background-repeat: repeat-x;
-  background-size: 140px;
-  background-position-x: 0;
-  transition: all .5s ease-in-out;
-}
 
-.item {
-  width: 120px;
-  position: relative;
-  padding-right: 20px;
-}
-
-.thumb-new {
-  width: 100px;
-}
-
-.thumb-original {
-  width: 50px;
-  position: absolute;
-  top: 60px;
-  right: 10px;
-}
-
-.thumb-new, .thumb-original {
-  border: 4px solid transparent;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all .5s;
-}
-
-.menu-button {
-  font-size: 120px;
-  line-height: 60px;
-  width: 35px;
-  height: 50px;
-  color: hsl(38deg 26% 18%);
-  user-select: none;
-  cursor: pointer;
-  transition: all .5s;
-}
-
-.menu-button.righty:hover {
-  text-shadow: -3px 0 2px hsl(38deg 26% 18%);
-  transform: translateX(5px);
-}
-
-.menu-button.lefty:hover {
-  text-shadow: 3px 0 2px hsl(38deg 26% 18%);
-  transform: translateX(-5px);
-}
 
 /* Tooltips */
 .tooltip-inner {
@@ -371,25 +419,4 @@ body {
   height: 100%;
   rx: 15px;
   fill: hsl(34deg 100% 92%);
-}
-
-/* Scrollbar */
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
 }

@@ -10,10 +10,17 @@ whatsoever. I chose to make these charts in `R` using `ggplot` and many extensio
 inequality in my homeland, Brazil.
 
 ## 2023
+### Week 07 - Higher education enrollments by race and field
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week07/week07.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week07/enrollments.png)
+
 ### Week 06 - Incarcerated people by race in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week06/week06.R
 
-🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1636375321523154945
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week06/incarcerated.png)
 

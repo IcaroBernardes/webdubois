@@ -17,8 +17,15 @@
 var imageids = [
 "y22wk01", "y22wk02", "y22wk03", "y22wk04", "y22wk05",
 "y22wk06", "y22wk07", "y22wk08", "y22wk09", "y22wk10",
-"y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06"
+"y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06",
+"y23wk07"
 ];
+</script>
+
+<!-- Declares a global object that lists the detail data of the plots -->
+<script>
+var detailsDATA = 
+  {"y22wk01":[{"original-title":"THE GEORGIA NEGRO","new-title":"THE AFRO-BRAZILIANS"}],"y22wk02":[{"original-title":"ASSESSED VALUATION OF ALL TAXABLE PROPERTY OWNED BY GEORGIA NEGROES","new-title":"REAL MONTHLY INCOME PER CAPITA OF BLACK HOUSEHOLDS IN BRAZIL"}],"y22wk03":[{"original-title":"RELATIVE NEGRO POPULATION OF THE STATES OF THE UNITED STATES","new-title":"ACCESS OF BLACK PEOPLE TO A PERSONAL MOBILE PHONE AND INTERNET IN THE STATES OF BRAZIL"}],"y22wk04":[{"original-title":"VALUATION OF TOWN AND CITY PROPERTY OWNED BY GEORGIA NEGROES","new-title":"REAL INCOME OF BLACK PEOPLE WHOSE MAIN WORK IS INFORMAL"}],"y22wk05":[{"original-title":"SLAVES AND FREE NEGROES","new-title":"PARTICIPATION IN MANAGERIAL POSITIONS BY RACE IN BRAZIL"}],"y22wk06":[{"original-title":"ILLITERACY","new-title":"ILLITERACY RATE OF BLACK PEOPLE IN BRAZIL"}],"y22wk07":[{"original-title":"CONJUGAL CONDITION OF AMERICAN NEGROES ACCORDING TO AGE PERIODS","new-title":"CAPITAL OF CANDIDATURES FOR THE LOWER HOUSE OF THE BRAZILIAN CONGRESS BY RACE AND STATE"}],"y22wk08":[{"original-title":"ASSESSED VALUE OF HOUSEHOLD AND KITCHEN FURNITURE OWNED BY GEORGIA NEGROES","new-title":"RATE OF HOMICIDES OF BLACKS BY PER 100K PEOPLE"}],"y22wk09":[{"original-title":"NUMBER OF NEGRO STUDENTS TAKING THE VARIOUS COURSES OF STUDY OFFERED IN GEORGIA SCHOOLS","new-title":"OCCUPIED BLACKS PER 1000 PEOPLE BY EDUCATIONAL LEVEL IN BRAZIL"}],"y22wk10":[{"original-title":"PROPORTION OF TOTAL NEGRO CHILDREN OF SCHOOL AGE WHO ARE ENROLLED IN THE PUBLIC SCHOOLS","new-title":"PROPORTION OF BLACKS AND NON-BLACKS CANDIDATES AND ELECTED FOR THE LOWER HOUSE OF THE BRAZILIAN CONGRESS"}],"y23wk02":[{"original-title":"VALUE OF LAND OWNED BY GEORGIA NEGROES","new-title":"REAL AVERAGE INCOME OF BLACK BRAZILIANS"}],"y23wk03":[{"original-title":"CITY AND RURAL POPULATION 1890","new-title":"HOMICIDE VICTIMS BY RACE AND SEX"}],"y23wk04":[{"original-title":"DISTRIBUTION OF NEGROES IN THE UNITED STATES","new-title":"DISTRIBUTION OF BLACKS IN BRAZIL"}],"y23wk05":[{"original-title":"NEGRO BUSINESS MEN IN THE UNITED STATES","new-title":"RIO SAMBA SCHOOLS PARADE WINNERS"}],"y23wk06":[{"original-title":"CRIME AMONG AMERICAN NEGROES","new-title":"INCARCERATED PEOPLE BY RACE IN BRAZIL"}],"y23wk07":[{"original-title":"OCCUPATIONS OF NEGROES AND WHITES IN GEORGIA","new-title":"HIGHER EDUCATION ENROLLMENTS BY RACE AND FIELD"}]}
 </script>
 
 <!-- Establishes triggers to show and hide info with a slide animation.
@@ -94,11 +101,16 @@ $(document).ready(function(){
     
     // Guarantees that the change only happens if an object that has an id is clicked
     if (idimage.length != 0) {
+      // Changes the background images in the comparative display
       $('.background-img').css('background-image', `url(${newimages[idimage]})`);
       $('.foreground-img').css('background-image', `url(${origimages[idimage]})`);
       
       // Scrolls until the top of the comparative display is atop the page
       document.querySelector("#comparative-display").scrollIntoView({behavior: "smooth"});
+      
+      //Changes the description items
+      $('#original-title span').html(`${detailsDATA[idimage][0]["original-title"]}`);
+      $('#new-title span').html(`${detailsDATA[idimage][0]["new-title"]}`);
     }
   });
 });
@@ -159,13 +171,13 @@ scrolling behaviour inside the gallery menu -->
 <script>
 $(document).ready(function(){
   // Defines the scroll amount in px
-  let scrl = 240;
+  let scrl = 500;
 
-  $(".menu-button.lefty").click(function() {
+  $(".menu-button.navup").click(function() {
     // Scrolls items to the left
     $(this).siblings("#gallery")[0].scrollBy({
-      top: 0,
-      left: -scrl,
+      top: -scrl,
+      left: 0,
       behavior: "smooth",
     });
     
@@ -175,11 +187,11 @@ $(document).ready(function(){
     $(this).siblings("#gallery").css("background-position-x", xpos);
   });
   
-  $(".menu-button.righty").click(function() {
+  $(".menu-button.navdown").click(function() {
     // Scrolls items to the right
     $(this).siblings("#gallery")[0].scrollBy({
-      top: 0,
-      left: scrl,
+      top: scrl,
+      left: 0,
       behavior: "smooth",
     });
     
@@ -251,35 +263,43 @@ $(document).ready(function(){
     </div>
 </div>
 
-
-<!-- Comparative section -->
-<div id='comparative-section'>
-  <div id='comparative-display'>
-    <div class='img background-img'></div>
-    <div class='img foreground-img'></div>
-    <input type="range" min="1" max="100" value="50" class="slider" name='slider' id="slider">
-    <div id='slider-button'></div>
+<!-- Main content section -->
+<div id='main-content'>
+  <div id='instructions'>
+    <div id='menu-instructions'>
+    <strong>CLICK</strong> ON ONE OF THE <strong>CIRCLES</strong> IN THE MENU BELOW TO CHOOSE A CHALLENGE EXHIBIT.
+    </div>
+    <div id='comparative-instructions'>
+    THE DUBOIS ORIGINAL (LEFT) AND THE NEW PLOT (RIGHT) ARE GOING TO BE SHOWN IN THE DISPLAY BELOW.<br>
+    <strong>CLICK</strong> AND/OR <strong>DRAG</strong> THE <strong>SLIDER</strong> TO REVEAL SECTIONS OF THE PLOTS.
+    </div>
   </div>
+  
+  <!-- Menu section -->
+  <div id='menu-section'>
+    <div id='menu-items'>
+      <div class='menu-button navup'>&#x1F890;</div>
+      <div id='gallery'></div>
+      <div class='menu-button navdown'>&#x1F892;</div>
+    </div> 
+  </div>
+  
+  <!-- Comparative section -->
+  <div id='comparative-section'>
+    <div id='comparative-display'>
+      <div class='img background-img'></div>
+      <div class='img foreground-img'></div>
+      <input type="range" min="1" max="100" value="50" class="slider" name='slider' id="slider">
+      <div id='slider-button'></div>
+    </div>
+  </div>
+  
 </div>
 
-<!-- Menu section -->
-<div id='menu-section'>
-
-<div id='menu-items'>
-<!--
-  <div class='up'><svg viewBox="0 0 30 30" class='canvas-circle up'>
-    <circle/>
-    <text x="-22" y="24">></text>
-  </svg></div>-->
-  <div class='menu-button lefty'>&#x1F890;</div>
-  <div id='gallery'></div>
-  <div class='menu-button righty'>&#x1F892;</div>
-  <!--
-  <div class='down'><svg viewBox="0 0 30 30" class='canvas-circle down'>
-    <circle></circle>
-    <text x="10" y="-5">></text>
-  </svg></div>-->
-</div> 
+<!-- Details section -->
+<div id='details-section'>
+  <p id='original-title'><strong>ORIGINAL TITLE: </strong><span>THE GEORGIA NEGRO</span></p>
+  <p id='new-title'><strong>NEW TITLE: </strong><span>THE AFRO-BRAZILIANS</span></p>
 </div>
 
 <!-- Connects to a bundle of Bootstrap and Popper through cdnjs -->
