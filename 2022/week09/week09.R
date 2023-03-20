@@ -1,11 +1,14 @@
 # 0. Library and fonts management
-library(tidyverse)
+library(dplyr)
 library(ggplot2)
 library(showtext)
 library(scales)
 library(glue)
 library(ggtext)
 library(ggforce)
+library(sysfonts)
+library(tidyr)
+library(purrr)
 
 ## Adding Google Fonts
 sysfonts::font_add_google(name = "Teko", family = "teko") ### Sans Serif
@@ -66,7 +69,7 @@ curver <- function(x) {
   ### Generates the coordinates for the full sections (if there are any)
   if (full_pair > 0) {
     
-    data = tibble::tibble(
+    data = dplyr::tibble(
       xmin = rep(r, full_pair),
       xmax = rep(1-r, full_pair),
       ymin = seq(0, -(full_pair-1)*dh, by = -dh) - e/2,
@@ -81,7 +84,7 @@ curver <- function(x) {
     
   } else {
     
-    data = tibble::tibble(
+    data = dplyr::tibble(
       xmin = NA,
       xmax = NA,
       ymin = NA,
@@ -107,7 +110,7 @@ curver <- function(x) {
     P = remains %% H
     
     data = data %>% 
-      tibble::add_row(
+      dplyr::add_row(
         xmin = r,
         xmax = 1-r,
         ymin = -full_pair*dh - e/2,
@@ -121,7 +124,7 @@ curver <- function(x) {
   } else {
     
     data = data %>% 
-      tibble::add_row(
+      dplyr::add_row(
         xmin = ifelse(full_pair %% 2 == 0, r, 1-r-remains),
         xmax = ifelse(full_pair %% 2 == 0, r+remains, 1-r),
         ymin = -full_pair*dh - e/2,

@@ -1,10 +1,11 @@
 # 0. Library and fonts management
-library(tidyverse)
+library(dplyr)
 library(ggplot2)
 library(showtext)
 library(glue)
 library(scales)
 library(ggforce)
+library(sysfonts)
 
 ## Adding Google Fonts
 sysfonts::font_add_google(name = "Teko", family = "teko") ### Sans Serif
@@ -35,7 +36,7 @@ df <- rawdata %>%
 
 ## Adds an estimate for 2019
 df <- df %>% 
-  tibble::add_row(year = 2019, race = "black", illiteracy = 9.0)
+  dplyr::add_row(year = 2019, race = "black", illiteracy = 9.0)
 
 ## Rescales the data to a 1-2 range
 df <- df %>% 
@@ -90,7 +91,7 @@ Ylabels <- df %>%
   dplyr::mutate(label = ifelse(row_number() == n(),
                                glue::glue("({label}?)"),
                                label)) %>% 
-  tibble::add_row(x = max(df$x)*Vlim,
+  dplyr::add_row(x = max(df$x)*Vlim,
                   y = max(df$y)*Hlim+0.02,
                   label = "PERCENT OF\nILLITERACY",
                   size = 12)
@@ -165,4 +166,3 @@ p <- ggplot(NULL) +
 ## Saves the plot
 ggsave("2022/week06/illiteracy.png", plot = p, dpi = "retina",
        width = 22, height = 28)
-

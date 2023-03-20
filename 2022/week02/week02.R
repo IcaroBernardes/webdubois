@@ -1,9 +1,10 @@
 # 0. Library and fonts management
-library(tidyverse)
+library(dplyr)
 library(ggplot2)
 library(showtext)
 library(glue)
 library(scales)
+library(sysfonts)
 library(ggforce)
 library(ggtext)
 

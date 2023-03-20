@@ -1,8 +1,10 @@
 # 0. Library and fonts management
-library(tidyverse)
+library(dplyr)
 library(showtext)
 library(glue)
+library(tidyr)
 library(ggtext)
+library(sysfonts)
 
 ## Adding Google Fonts
 sysfonts::font_add_google(name = "Teko", family = "teko") ### Sans Serif

@@ -12,6 +12,13 @@
         url('./fonts/FA6brands.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
 
+/* Makes the 'Font Awesome 6 -  Solid' font available */
+@font-face {
+  font-family: 'FA6solid';
+  src:  url('./fonts/FA6solid.woff') format('woff'), /* Modern Browsers */
+        url('./fonts/FA6solid.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
 /* Configures links */
 a {
     color: #d18520;
@@ -205,7 +212,7 @@ body {
 }
 
 #menu-instructions {
-  width: 200px;
+  width: 230px;
 }
 
 #comparative-instructions {
@@ -214,7 +221,7 @@ body {
 
 /* Menu section */
 #menu-section {
-  width: 200px;
+  width: 230px;
 }
 
 #menu-items {
@@ -232,7 +239,7 @@ body {
   flex-direction: column;
   overflow-y: hidden;
   row-gap: 20px;
-  padding: 20px;
+  padding-left: 20px;
   height: 100%;
   /*background-image: url(./wave.png);
   background-repeat: repeat-x;
@@ -253,7 +260,7 @@ body {
 .thumb-original {
   width: 50px;
   position: absolute;
-  top: 60px;
+  bottom: -20px;
   right: 10px;
 }
 
@@ -385,15 +392,79 @@ body {
 /* Details section */
 #details-section {
   width: 100%;
-  padding: 50px 0;
-  font-size: 15px;
-}
-
-#original-title {
+  padding-top: 50px;
   font-size: 30px;
+  line-height: 35px;
 }
 
+#details-section > div {
+  margin-bottom: 30px;
+}
 
+#original-title, #new-title {
+  height: 70px;
+}
+
+#packages div {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  row-gap: 15px;
+  column-gap: 20px;
+  height: 150px;
+  margin-top: 20px;
+}
+
+#packages button {
+  font-size: 15px;
+  width: 100px;
+  height: 40px;
+  color: white;
+  cursor: default;
+}
+
+.btn {
+  background-color: #d18520;
+}
+
+.btn:hover {
+  background-color: #ac6d1b;
+}
+
+.btn.focus, .btn:focus {
+  box-shadow: 0 0 0 0.2rem rgb(172 109 27 / 25%);
+}
+
+#downloads div {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+#downloads div span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px;
+}
+
+.down-icon {
+  font-family: 'FA6solid';
+  font-size: 60px;
+}
+
+#down-data:before {
+  content: '\f15b';
+}
+
+#down-original:before {
+  content: '\f200';
+}
+
+#down-new:before {
+  content: '\e473';
+}
 
 /* Tooltips */
 .tooltip-inner {

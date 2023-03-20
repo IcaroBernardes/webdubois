@@ -197,6 +197,124 @@ df <- dplyr::tibble(
     "RIO SAMBA SCHOOLS PARADE WINNERS",
     "INCARCERATED PEOPLE BY RACE IN BRAZIL",
     "HIGHER EDUCATION ENROLLMENTS BY RACE AND FIELD"
+  ),
+  packages = list(
+    list("dplyr", "geomtextpath", "ggbump", "ggfx", "ggplot2",
+         "ggtext", "readxl", "rmapshaper", "rnaturalearth",
+         "scales", "sf", "showtext", "sysfonts", "tidyr"),
+    list("dplyr", "ggforce", "ggplot2", "ggtext", "glue",
+         "scales", "showtext", "sysfonts"),
+    list("dplyr", "ggplot2", "ggtext", "glue", "patchwork",
+         "santoku", "sf", "showtext", "stringr", "sysfonts", "tidyr"),
+    list("dplyr", "emojifont", "ggplot2", "ggtext",
+         "glue", "showtext", "sysfonts"),
+    list("dplyr", "ggplot2", "ggtext", "glue",
+         "scales", "showtext", "sysfonts"),
+    list("dplyr", "ggforce", "ggplot2", "glue",
+         "scales", "showtext", "sysfonts"),
+    list("dplyr", "ggplot2", "ggtext", "glue", "scales", "seriation",
+         "showtext", "stringr","sysfonts", "tidyr"),
+    list("dplyr", "ggplot2", "ggtext", "glue", "purrr",
+         "scales", "showtext", "sysfonts", "tidyr"),
+    list("dplyr", "ggforce", "ggplot2", "ggtext", "glue",
+         "purrr", "scales", "showtext", "sysfonts", "tidyr"),
+    list("dplyr", "ggtext", "glue", "showtext", "sysfonts", "tidyr"),
+    list("dplyr", "ggforce", "ggplot2", "ggtext", "ggview", "junebug",
+         "purrr", "readxl", "scales", "systemfonts", "tidyr"),
+    list("dplyr", "geomtextpath", "ggborderline","ggplot2", "ggtext",
+         "ggview", "glue", "junebug", "readxl", "scales", "systemfonts"),
+    list("dplyr", "geobr", "ggbeeswarm", "ggplot2", "ggforce", "ggtext",
+         "ggview", "junebug", "purrr", "readxl", "rmapshaper",
+         "santoku", "scales", "systemfonts", "tidyr"),
+    list("colorspace", "dplyr", "ggplot2", "ggtext", "ggview", "glue",
+         "junebug", "readxl", "scales", "stringr", "systemfonts"),
+    list("colorspace", "dplyr", "ggfx", "ggplot2", "ggtext",
+         "ggview", "glue", "junebug", "purrr", "readr",
+         "scales", "stringr", "systemfonts", "tidyr"),
+    list("dplyr", "ggforce", "ggplot2", "ggtext", "ggview", "glue", "junebug",
+         "purrr", "readxl", "scales", "stringr", "systemfonts", "tidyr")
+    ),
+  downloads = list(
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week01/data.xlsx",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y22wk01.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2022/week01/enslaved.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week02/data.csv",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y22wk02.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2022/week02/income.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week03/data.csv",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y22wk03.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2022/week03/access.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week04/data.csv",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y22wk04.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2022/week04/incomes.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week05/data.csv",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y22wk05.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2022/week05/managers.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week06/data.xlsx",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y22wk06.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2022/week06/illiteracy.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week07/data.csv",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y22wk07.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2022/week07/congress.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week08/data.csv",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y22wk08.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2022/week08/violence.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week09/data.csv",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y22wk09.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2022/week09/job.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week10/data.csv",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y22wk10.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2022/week10/elections.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2023/week02/data.xlsx",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk02.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week02/income.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2023/week03/data.xlsx",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk03.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week03/victims.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2023/week04/data.xlsx",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk04.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week04/distribution.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2023/week05/data.xlsx",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk05.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week05/samba_champions.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2023/week06/data.csv",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk06.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week06/incarcerated.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2023/week07/data.xlsx",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk07.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week07/enrollments.png"
+    )
   )
 )
 
