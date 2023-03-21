@@ -21,29 +21,30 @@
 
 /* Configures links */
 a {
-    color: #d18520;
-    text-decoration: none;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects
+  color: #d18520;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  transition: all .2s;
 }
 
 a:hover {
-    color: #845415;
-    text-decoration: none;
+  color: #845415;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]):focus,a:not([href]):not([tabindex]):hover {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]):focus {
-    outline: 0;
+  outline: 0;
 }
 
 /* Containers */
@@ -194,17 +195,17 @@ body {
 #main-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 #instructions {
   width: 100%;
-  font-size: 25px;
-  line-height: 25px;
+  font-size: 22px;
+  line-height: 22px;
   text-align: center;
   margin-bottom: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 #instructions strong {
@@ -212,7 +213,7 @@ body {
 }
 
 #menu-instructions {
-  width: 230px;
+  width: 200px;
 }
 
 #comparative-instructions {
@@ -221,7 +222,7 @@ body {
 
 /* Menu section */
 #menu-section {
-  width: 230px;
+  width: 200px;
 }
 
 #menu-items {
@@ -238,13 +239,9 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
-  row-gap: 20px;
+  row-gap: 30px;
   padding-left: 20px;
   height: 100%;
-  /*background-image: url(./wave.png);
-  background-repeat: repeat-x;
-  background-size: 140px;
-  background-position-x: 0;*/
   transition: all .5s ease-in-out;
 }
 
@@ -276,7 +273,7 @@ body {
   line-height: 60px;
   width: 35px;
   height: 50px;
-  color: hsl(38deg 26% 18%);
+  color: #d18520;
   user-select: none;
   cursor: pointer;
   transition: all .5s;
@@ -287,13 +284,23 @@ body {
 }
 
 .menu-button.navup:hover {
-  text-shadow: 3px 0 2px hsl(38deg 26% 18%);
+  text-shadow: 3px 0 2px #845415;
   transform: rotate(90deg) translateX(-5px);
 }
 
 .menu-button.navdown:hover {
-  text-shadow: -3px 0 2px hsl(38deg 26% 18%);
+  text-shadow: -3px 0 2px #845415;
   transform: rotate(90deg) translateX(5px);
+}
+
+.navdisable {
+  color: #3a3122;
+  cursor: not-allowed;
+}
+
+.navdisable:hover {
+  text-shadow: none !important;
+  transform: rotate(90deg) translateX(0px) !important;
 }
 
 /* Comparative section */
@@ -341,6 +348,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .slider:hover {
@@ -352,7 +360,7 @@ body {
   appearance: none;
   width: 6px;
   height: 611px;
-  background: white;
+  background: #d18520;
   cursor: pointer;
 }
 
@@ -363,7 +371,7 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: white;
+  background-color: #d18520;
   left: calc(50% - 18px);
   top: calc(50% - 18px);
   display: flex;
@@ -375,7 +383,7 @@ body {
   content: '';
   padding: 3px;
   display: inline-block;
-  border: solid #5D5D5D;
+  border: solid white;
   border-width: 0 2px 2px 0;
   transform: rotate(-45deg);
 }
@@ -384,7 +392,7 @@ body {
   content: '';
   padding: 3px;
   display: inline-block;
-  border: solid #5D5D5D;
+  border: solid white;
   border-width: 0 2px 2px 0;
   transform: rotate(135deg);
 }

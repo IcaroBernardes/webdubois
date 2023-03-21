@@ -150,6 +150,7 @@ ggsave("www/africa.png", width = w, height = w*(104/70), units = "px")
 # 0. Initial setup ##########
 ## Loads packages
 library(dplyr)
+library(glue)
 library(jsonlite)
 library(tidyr)
 
@@ -327,5 +328,13 @@ df <- df |>
 listed <- df |> dplyr::pull(data)
 names(listed) <- df |> dplyr::pull(ids)
 
-## Creates the JS object
-listed |> jsonlite::toJSON()
+## Creates the JS object as a string
+listed <- listed |> jsonlite::toJSON(pretty = TRUE)
+
+## Adds the 'var' declaration
+listed <- glue::glue("var detailsDATA = {listed}")
+
+## Writes the JS file with the data
+fileConn <- file("www/js/dataset.js")
+writeLines(listed, fileConn)
+close(fileConn)
