@@ -123,7 +123,7 @@ body {
   r: 14px;
   cx: 15px;
   cy: 15px;
-  fill: hsl(34deg 100% 92%);
+  fill: #d18520;
   stroke: transparent;
   stroke-width: 2px;
   transition: all .5s;
@@ -144,11 +144,57 @@ body {
 
 #info {
   display: none;
-  padding-top: 20px;
+  margin-top: 50px;
+  height: 350px;
+  width: 100%;
 }
 
-#info div {
+#info-menu {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: 100px;
+}
+
+.info-item {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  cursor: pointer;
+  transition: all .2s;
+  background-size: cover;
+}
+
+.info-text {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+#dubois-light {
+  background-image: url('./info/dubois-light.png');
+}
+
+#icaro-light {
+  background-image: url('./info/icaro-light.png');
+}
+
+#starks-light {
+  background-image: url('./info/starks-light.png');
+}
+
+#info-dubois, #info-icaro, #info-starks {
+  display: none;
+}
+
+#info-dubois {
   column-gap: 20px;
 }
 
@@ -403,6 +449,10 @@ body {
   padding-top: 50px;
   font-size: 30px;
   line-height: 35px;
+}
+
+#details-section * {
+  transition: all .2s;
 }
 
 #details-section > div {

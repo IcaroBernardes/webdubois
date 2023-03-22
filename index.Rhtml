@@ -30,20 +30,33 @@ var imageids = [
 
 <!-- Establishes triggers to show and hide info with a slide animation.
 Also changes the svg text that is visible inside the button -->
-<script>
-$(document).ready(function(){
-  $("#plus").click(function() {
-    $("#info").slideDown("slow");
-    $("#plus").fadeToggle({duration: 200, queue: false});
-    $("#minus").fadeToggle({duration: 200, queue: false});
-  });
-  $("#minus").click(function() {
-    $("#info").slideUp("slow");
-    $("#minus").fadeToggle({duration: 200, queue: false});
-    $("#plus").fadeToggle({duration: 200, queue: false});
-  });
-});
-</script>
+<script src="www/js/expander.js"></script>
+
+<!-- Connects slider input position to the width of the foreground image -->
+<script src="www/js/slider.js"></script>
+
+<!-- Connects clicking on the gallery menu to which
+images are shown in the comparative display and
+updates the data shown in the details section -->
+<script src="www/js/controller.js"></script>
+
+<!-- Populates the menu with items -->
+<script src="www/js/builder.js"></script>
+
+<!-- Binds clicking on the buttons to scrolling behaviour
+inside the gallery menu. Customizes their animation
+to indicate limits of the navigation -->
+<script src="www/js/navigator.js"></script>
+
+<!-- Binds hover effects to the pairs of thumbnails -->
+<script src="www/js/thumbhover.js"></script>
+
+<!-- Binds hover effects to the info images -->
+<script src="www/js/infohover.js"></script>
+
+
+<script src="www/js/informer.js"></script>
+
 
 <!-- Binds hover effects to each svg circle -->
 <script>
@@ -53,79 +66,6 @@ $(document).ready(function(){
   });
   $(".canvas-circle").mouseleave(function() {
     $( this ).find("circle").css("stroke", "transparent");
-  });
-});
-</script>
-
-<!-- JS script that connects slider input
-position to the width of the foreground image -->
-<script>
-$(document).ready(function(){
-  // .on("input change") responds to changes on the input while dragging the mouse
-  // .change() only triggers once the mouse stops being dragged
-  $("#slider").on("input change", (e)=>{
-    const sliderPos = e.target.value;
-    // Update the width of the foreground image
-    $('.foreground-img').css('width', `${sliderPos}%`);
-    // Update the position of the slider button
-    $('#slider-button').css('left', `calc(${sliderPos}% - 18px)`);
-  });
-});
-</script>
-
-<!-- JS script that connects clicking on the gallery menu
-to which images are shown in the comparative display -->
-<script>
-$(document).ready(function(){
-
-  // Initiates an object to hold url of the original images
-  let origimages = {};
-  
-  // Fills the object with the urls by iterating through 'imageids'
-  imageids.map((el, index) => {
-    return origimages[imageids[index]] = 'www/dubois/' + imageids[index] + '.png';
-  });
-  
-  // Initiates an object to hold url of the new images
-  let newimages = {};
-  
-  // Fills the object with the urls by iterating through 'imageids'
-  imageids.map((el, index) => {
-    return newimages[imageids[index]] = 'www/new/' + imageids[index] + '.png';
-  });
-  
-  // Gets the 'data' attribute of the clicked object and uses it to search
-  // through the arrays and defines the new urls of the background images
-  $('#menu-section').click(function(e) {
-    const idimage = $(e.target).attr('data');
-    
-    // Guarantees that the change only happens if an object that has an id is clicked
-    if (idimage.length != 0) {
-      // Changes the background images in the comparative display
-      $('.background-img').css('background-image', `url(${newimages[idimage]})`);
-      $('.foreground-img').css('background-image', `url(${origimages[idimage]})`);
-      
-      // Updates the description items
-      $('#original-title span').html(`${detailsDATA[idimage][0]["original-title"]}`);
-      $('#new-title span').html(`${detailsDATA[idimage][0]["new-title"]}`);
-      
-      // Updates the list of packages
-      let pkg = detailsDATA[idimage][0]["packages"].map((el) => {
-        return "<button class='btn'>" + el + "</div>";
-      });
-      $('#packages div').html(pkg);
-      
-      // Updates the download links
-      $('#down-data').attr("href", `${detailsDATA[idimage][0]["downloads"][0]}`);
-      $('#down-original').attr("href", `${detailsDATA[idimage][0]["downloads"][1]}`);
-      $('#down-new').attr("href", `${detailsDATA[idimage][0]["downloads"][2]}`);
-      
-      // Updates the downloads names
-      let down1 = "original_" + idimage + ".png";
-      $('#down-original').attr("download", down1);
-      let down2 = "new_" + idimage + ".png";
-      $('#down-new').attr("download", down2);
-    }
   });
 });
 </script>
@@ -163,105 +103,6 @@ $(document).ready(function(){
   }
 });
 </script>
-
-<script>
-$(document).ready(function(){
-  // Creates the HTML structure for the thumbnails of the gallery menu
-  let galleryHTML = imageids.map((el) => {
-    return "<div class='item'>" +
-            "<img src='www/new/thumb_" + el + ".png' class='thumb-new' data='" + el + "'>" +
-            "<img src='www/dubois/thumb_" + el + ".png' class='thumb-original' data='" + el + "'>" +
-          "</div>";
-  });
-  
-  // Applies the string to the gallery as a HTML structure
-  $("#gallery").html(galleryHTML)
-  
-});
-</script>
-
-<!-- Binds clicking on the buttons to
-scrolling behaviour inside the gallery menu -->
-<script>
-$(document).ready(function(){
-  // Defines the scroll amount in px
-  let scrl = 360;
-  
-  // Scrolls items to the top
-  $(".menu-button.navdown").mousedown(function() {
-    $(this).siblings("#gallery")[0].scrollBy({
-      top: scrl,
-      left: 0,
-      behavior: "smooth",
-    });
-  });
-  
-  // Scrolls items to the bottom
-  $(".menu-button.navup").mousedown(function() {
-    $(this).siblings("#gallery")[0].scrollBy({
-      top: -scrl,
-      left: 0,
-      behavior: "smooth",
-    });
-  });
-  
-  // Changes the color and disables each button when hitting the menu limits
-  $("#gallery").on("scroll", function() {
-    // Reads properties of the menu
-    let galHEIGHT = document.querySelector("#gallery")['clientHeight'];
-    let scrlHEIGHT = document.querySelector("#gallery")['scrollHeight'];
-    let scrlPOS = document.querySelector("#gallery")['scrollTop'];
-    
-    // Handles changes on the up button
-    if (scrlPOS == 0) {
-      $(this).siblings(".navup").addClass("navdisable");
-    } else {
-      $(this).siblings(".navup").removeClass("navdisable");
-    }
-    
-    // Handles changes on the down button
-    if (scrlHEIGHT - galHEIGHT < scrlPOS+1) {
-      $(this).siblings(".navdown").addClass("navdisable");
-    } else {
-      $(this).siblings(".navdown").removeClass("navdisable");
-    }
-  });
-});
-</script>
-
-<!-- Binds hover effects to the pairs of thumbnails -->
-<script>
-$(document).ready(function(){
-  $(".thumb-new, .thumb-original").hover(
-    function() {
-      $( this ).css("border-color", "#d18520");
-      $( this ).siblings().css("border-color", "#d18520");
-      $( this ).css("background-color", "#d18520");
-      $( this ).siblings().css("background-color", "#d18520");
-    }, function() {
-      $( this ).css("border-color", "transparent");
-      $( this ).siblings().css("border-color", "transparent");
-      $( this ).css("background-color", "transparent");
-      $( this ).siblings().css("background-color", "transparent");
-    }
-  );
-  $(".thumb-original").hover(
-    function() {
-      $( this ).css("width", "70px");
-    }, function() {
-      $( this ).css("width", "50px");
-    }
-  );
-  $(".thumb-new").hover(
-    function() {
-      $( this ).siblings().css("width", "70px");
-    }, function() {
-      $( this ).siblings().css("width", "50px");
-    }
-  );
-});
-</script>
-
 </head>
 
 <body><div id='container'>
@@ -291,19 +132,45 @@ $(document).ready(function(){
       </div>
     </div>
     
-    <div id='info'><div>
-      <span>
-        <a href='https://en.wikipedia.org/wiki/W._E._B._Du_Bois' target='_blank'>W.E.B. Du Bois</a> (February 23, 1868 – August 27, 1963) was an American sociologist, socialist, historian and Pan-Africanist civil rights activist <span style='font-style:italic;'>(Source: Wikipedia)</span>.
-        <br><br>
-        In the 1900 Paris Exposition his team made a historical display. They presented in many charts the situation of Black people in Georgia and the US in general. The timelessness of these posters provoked <a href='https://twitter.com/ajstarks' target='_blank'>Anthony Starks</a>, <a href='https://twitter.com/AlDatavizguy' target='_blank'>Allen Hillery</a>, <a href='https://twitter.com/sqlsekou' target='_blank'>Sekou Tyler</a> and <a href='https://twitter.com/menscuriosa' target='_blank'>Chimdi Nwosu</a> to create and mantain the <a href='https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge' target='_blank'>#DuBoisChallenge</a>. The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in <code>R</code> using <code>ggplot</code> and many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
-      </span>
-      <img src='www/portrait.jpg' id='portrait'>
-    </div></div>
+    <div id='info'>
     
+    <div id='info-menu'>
+      <div class='info-item'>
+        <div class='info-img' id='dubois-light'></div>
+        <div class='info-text'>WHO WAS W.E.B. DUBOIS?</div>
+      </div>
+      <div class='info-item'>
+        <div class='info-img' id='icaro-light'></div>
+        <div class='info-text'>WHO IS ICARO BERNARDES?</div>
+      </div>
+      <div class='info-item'>
+        <div class='info-img' id='starks-light'></div>
+        <div class='info-text'>WHAT IS THE DUBOIS CHALLENGE?</div>
+      </div>
+    </div>
+    
+    <div id='info-content'>
+      <div id='info-dubois'>
+        <div>
+          <a href='https://en.wikipedia.org/wiki/W._E._B._Du_Bois' target='_blank'>W.E.B. Du Bois</a> (February 23, 1868 – August 27, 1963) was an American sociologist, socialist, historian and Pan-Africanist civil rights activist <span style='font-style:italic;'>(Source: Wikipedia)</span>.
+        </div>
+        <img src='www/portrait.jpg' id='portrait'>
+      </div>
+      <div id='info-icaro'>
+        Dataviz specialist and dev Fullstack R. Co-founder of BIT::Analytics
+      </div>
+      <div id='info-starks'>
+        <div>
+          In the 1900 Paris Exposition his team made a historical display. They presented in many charts the situation of Black people in Georgia and the US in general. The timelessness of these posters provoked <a href='https://twitter.com/ajstarks' target='_blank'>Anthony Starks</a>, <a href='https://twitter.com/AlDatavizguy' target='_blank'>Allen Hillery</a>, <a href='https://twitter.com/sqlsekou' target='_blank'>Sekou Tyler</a> and <a href='https://twitter.com/menscuriosa' target='_blank'>Chimdi Nwosu</a> to create and mantain the <a href='https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge' target='_blank'>#DuBoisChallenge</a>. The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in <code>R</code> using <code>ggplot</code> and many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
+        </div>
+      </div>
+    </div>
+    
+    </div>
     <div id='bar'>
       <hr/>
       <div></div>
-      <image src="www/africa.png"/>
+      <img src="www/africa.png"/>
     </div>
 </div>
 
