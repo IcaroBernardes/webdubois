@@ -77,17 +77,6 @@
 <!-- TO CONSIDER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <script src="www/js/anime.min.js"></script>
 
-<script>
-function preload_image(im_url) {
-  let img = new Image();
-  img.src = im_url;
-}
-
-preload_image("www/dubois/y22wk04.png");
-preload_image("www/new/y22wk04.png");
-</script>
-
-
 <!-- Declares a global Array that lists identifiers for the plots -->
 <script>
 var imageids = [
@@ -96,6 +85,21 @@ var imageids = [
 "y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06",
 "y23wk07", "y23wk08"
 ];
+</script>
+
+<script>
+$(document).ready(function(){
+  
+  function preload_image(ids) {
+    let imgD = new Image();
+    let imgN = new Image();
+    imgD.src = "www/dubois/" + ids + ".png";
+    imgN.src = "www/new/" + ids + ".png";
+  }
+  
+  imageids.forEach(preload_image);
+  
+});
 </script>
 
 <!-- Declares a global object that lists the detail data of the plots -->
