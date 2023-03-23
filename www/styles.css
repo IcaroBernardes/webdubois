@@ -113,13 +113,13 @@ body {
   color: hsl(38deg 26% 18%);
 }
 
-.canvas-circle {
+#more svg {
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
 
-.canvas-circle circle {
+#more circle {
   r: 14px;
   cx: 15px;
   cy: 15px;
@@ -129,12 +129,9 @@ body {
   transition: all .5s;
 }
 
-.canvas-circle text {
+#more text {
   fill: hsl(38deg 26% 18%);
   user-select: none;
-}
-
-#more svg text {
   font-size: 40px;
 }
 

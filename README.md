@@ -10,6 +10,13 @@ whatsoever. I chose to make these charts in `R` using `ggplot` and many extensio
 inequality in my homeland, Brazil.
 
 ## 2023
+### Week 08 - Graduates by race in Brazil
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week08/week08.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week08/graduates.png)
+
 ### Week 07 - Higher education enrollments by race and field
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week07/week07.R
 

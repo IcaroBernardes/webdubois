@@ -83,7 +83,7 @@ var imageids = [
 "y22wk01", "y22wk02", "y22wk03", "y22wk04", "y22wk05",
 "y22wk06", "y22wk07", "y22wk08", "y22wk09", "y22wk10",
 "y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06",
-"y23wk07"
+"y23wk07", "y23wk08"
 ];
 </script>
 
@@ -116,21 +116,11 @@ to indicate limits of the navigation -->
 <!-- Binds hover effects to the info images -->
 <script src="www/js/infohover.js"></script>
 
-
+<!-- Animates the information menu on click -->
 <script src="www/js/informer.js"></script>
 
-
 <!-- Binds hover effects to each svg circle -->
-<script>
-$(document).ready(function(){
-  $(".canvas-circle").mouseenter(function() {
-    $( this ).find("circle").css("stroke", "hsl(38deg 26% 18%)");
-  });
-  $(".canvas-circle").mouseleave(function() {
-    $( this ).find("circle").css("stroke", "transparent");
-  });
-});
-</script>
+<script src="www/js/morehover.js"></script>
 
 <!-- JS script that binds original and new plots
 to make the tooltips -->
@@ -184,7 +174,7 @@ $(document).ready(function(){
           <span class='glyphs' id='lkd'></span> @icarobsc
         </a>
         <div id='more'>
-          <svg viewBox="0 0 30 30" class='canvas-circle'>
+          <svg viewBox="0 0 30 30">
             <circle></circle>
             <text x="7" y="27" id='plus'>+</text>
             <text x="9" y="27" id='minus'>-</text>

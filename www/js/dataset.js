@@ -370,5 +370,28 @@ var detailsDATA = {
         ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week07/enrollments.png"]
       ]
     }
+  ],
+  "y23wk08": [
+    {
+      "original-title": "COMPARATIVE RATE OF INCREASE OF THE WHITE AND NEGRO ELEMENTS OF THE POPULATION OF THE UNITED STATES",
+      "new-title": "GRADUATES BY RACE IN BRAZIL",
+      "packages": [
+        ["colorspace"],
+        ["dplyr"],
+        ["ggborderline"],
+        ["ggplot2"],
+        ["ggtext"],
+        ["ggview"],
+        ["junebug"],
+        ["readr"],
+        ["scales"],
+        ["systemfonts"]
+      ],
+      "downloads": [
+        ["https://github.com/IcaroBernardes/webdubois/raw/main/2023/week08/data.csv"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk08.png"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week08/graduates.png"]
+      ]
+    }
   ]
 }
