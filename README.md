@@ -13,7 +13,7 @@ inequality in my homeland, Brazil.
 ### Week 08 - Graduates by race in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week08/week08.R
 
-🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1640354194895917059
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week08/graduates.png)
 

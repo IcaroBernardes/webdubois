@@ -14,7 +14,8 @@ original_images <- list.files(path = "originals", pattern = ".png", full.names =
 new_images <- list.files(recursive = TRUE, pattern = ".png", full.names = TRUE)
 new_images <- new_images |> 
   stringr::str_subset("week[:digit:]{2}") |> 
-  stringr::str_subset("_pt.png|week00", negate = TRUE)
+  stringr::str_subset("_pt.png|week00", negate = TRUE) |> 
+  stringr::str_subset("/.+/.+/.+/", negate = TRUE)
 
 # 1. Images handling ##########
 ## Defines the final dimensions of thumbnails

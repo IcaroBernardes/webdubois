@@ -25,18 +25,32 @@ var imageids = [
 ];
 </script>
 
+<!-- Declares a global Array that lists identifiers for the informations menu -->
+<script>
+var infomenu = ["dubois", "icaro", "starks"];
+</script>
+
 <script>
 $(document).ready(function(){
-  
-  function preload_image(ids) {
+  // Function that load the galley images
+  function preload_image_gallery(ids) {
     let imgD = new Image();
     let imgN = new Image();
     imgD.src = "www/dubois/" + ids + ".png";
     imgN.src = "www/new/" + ids + ".png";
   }
   
-  imageids.forEach(preload_image);
+  // Applies the function on the image IDs
+  imageids.forEach(preload_image_gallery);
   
+  // Function that load the galley images
+  function preload_image_info(ids) {
+    let img = new Image();
+    img.src = "www/info/" + ids + "-dark.png";
+  }
+  
+  // Applies the function on the image IDs
+  infomenu.forEach(preload_image_info);
 });
 </script>
 
