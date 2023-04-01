@@ -162,7 +162,7 @@ df <- dplyr::tibble(
     "y22wk01", "y22wk02", "y22wk03", "y22wk04", "y22wk05",
     "y22wk06", "y22wk07", "y22wk08", "y22wk09", "y22wk10",
     "y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06",
-    "y23wk07", "y23wk08"
+    "y23wk07", "y23wk08", "y23wk09"
   ),
   `original-title` = c(
     "THE GEORGIA NEGRO",
@@ -181,7 +181,8 @@ df <- dplyr::tibble(
     "NEGRO BUSINESS MEN IN THE UNITED STATES",
     "CRIME AMONG AMERICAN NEGROES",
     "OCCUPATIONS OF NEGROES AND WHITES IN GEORGIA",
-    "COMPARATIVE RATE OF INCREASE OF THE WHITE AND NEGRO ELEMENTS OF THE POPULATION OF THE UNITED STATES"
+    "COMPARATIVE RATE OF INCREASE OF THE WHITE AND NEGRO ELEMENTS OF THE POPULATION OF THE UNITED STATES",
+    "OCCUPATIONS IN WHICH AMERICAN NEGROES ARE ENGAGED"
   ),
   `new-title` = c(
     "THE AFRO-BRAZILIANS",
@@ -200,7 +201,8 @@ df <- dplyr::tibble(
     "RIO SAMBA SCHOOLS PARADE WINNERS",
     "INCARCERATED PEOPLE BY RACE IN BRAZIL",
     "HIGHER EDUCATION ENROLLMENTS BY RACE AND FIELD",
-    "GRADUATES BY RACE IN BRAZIL"
+    "GRADUATES BY RACE IN BRAZIL",
+    "FINANCING OF BLACK CANDIDATURES TO MAYOR IN BRAZIL"
   ),
   packages = list(
     list("dplyr", "geomtextpath", "ggbump", "ggfx", "ggplot2",
@@ -238,7 +240,9 @@ df <- dplyr::tibble(
     list("dplyr", "ggforce", "ggplot2", "ggtext", "ggview", "glue", "junebug",
          "purrr", "readxl", "scales", "stringr", "systemfonts", "tidyr"),
     list("colorspace", "dplyr", "ggborderline", "ggplot2", "ggtext",
-         "ggview", "junebug", "readr", "scales", "systemfonts")
+         "ggview", "junebug", "readr", "scales", "systemfonts"),
+    list("dplyr", "forcats", "ggplot2", "ggtext", "ggview",
+         "glue","junebug", "readxl", "scales", "systemfonts")
     ),
   downloads = list(
     list(
@@ -325,6 +329,11 @@ df <- dplyr::tibble(
       "https://github.com/IcaroBernardes/webdubois/raw/main/2023/week08/data.csv",
       "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk08.png",
       "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week08/graduates.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2023/week09/data.xlsx",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk09.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week09/mayors.png"
     )
   )
 )

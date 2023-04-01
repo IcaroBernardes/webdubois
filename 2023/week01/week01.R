@@ -71,7 +71,7 @@ df_exp <- df_exp |>
     "Taxes and debts" = "Debt payment"
   ))
 
-## Converts income and expenditure from BRL to USD
+## Converts income and expenditure from BRL to USD.
 ## Mean exchange rates from 2017 and 2018 taken from https://www.exchangerates.org.uk
 exc_rt <- (0.3134 + 0.2755)/2
 

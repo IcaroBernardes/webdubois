@@ -393,5 +393,28 @@ var detailsDATA = {
         ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week08/graduates.png"]
       ]
     }
+  ],
+  "y23wk09": [
+    {
+      "original-title": "OCCUPATIONS IN WHICH AMERICAN NEGROES ARE ENGAGED",
+      "new-title": "FINANCING OF BLACK CANDIDATURES TO MAYOR IN BRAZIL",
+      "packages": [
+        ["dplyr"],
+        ["forcats"],
+        ["ggplot2"],
+        ["ggtext"],
+        ["ggview"],
+        ["glue"],
+        ["junebug"],
+        ["readxl"],
+        ["scales"],
+        ["systemfonts"]
+      ],
+      "downloads": [
+        ["https://github.com/IcaroBernardes/webdubois/raw/main/2023/week09/data.xlsx"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk09.png"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week09/mayors.png"]
+      ]
+    }
   ]
 }

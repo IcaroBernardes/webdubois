@@ -101,7 +101,6 @@ leg_lines <- dplyr::tibble(
 
 # 2. Plot production ##########
 ## Creates the title
-## Creates the title
 title <- "
 <span style='font-size:120px;'>GRADUATES BY RACE IN BRAZIL (2009-2021).</span>
 <br>\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582<br><br>
