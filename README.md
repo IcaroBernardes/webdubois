@@ -1,15 +1,17 @@
 # webdubois: W.E.B. Du Bois Challenge plots <img align="right" src="https://github.com/IcaroBernardes/webdubois/blob/main/www/portrait.jpg" alt="logo" width="200">
 
-[W.E.B. Du Bois](https://en.wikipedia.org/wiki/W._E._B._Du_Bois) (February 23, 1868 – August 27, 1963) was an American sociologist, socialist, historian
-and Pan-Africanist civil rights activist (*Source: Wikipedia*). 
-
-In the 1900 Paris Exposition his team made a historical display. They presented in many charts the situation of Black people in Georgia and the US in general.
-The timelessness of these posters provoked [Anthony Starks](https://twitter.com/ajstarks), [Allen Hillery](https://twitter.com/AlDatavizguy) and [Sekou Tyler](https://twitter.com/sqlsekou) to create the
-[#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools
-whatsoever. I chose to make these charts in `R` using `ggplot` and many extensions. Furthermore, like Du Bois I used this opportunity to talk about racial
-inequality in my homeland, Brazil.
+[W.E.B. Du Bois](https://en.wikipedia.org/wiki/W._E._B._Du_Bois) (February 23, 1868 – August 27, 1963) was an American sociologist, socialist, historian and Pan-Africanist civil rights activist (*Source: Wikipedia*). At the 1900 Paris Exposition, his team made a historical display. They presented in many charts the situation of Black people in Georgia and the US in general. To draw the attention of passersby, they balanced bold aesthetics with elegant solutions for better readability.
+The timelessness of these posters provoked [Anthony Starks](https://twitter.com/ajstarks), [Allen Hillery](https://twitter.com/AlDatavizguy), [Sekou Tyler](https://twitter.com/sqlsekou), and [Chimdi Nwosu](https://twitter.com/menscuriosa) to create and mantain the
+[#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in `R` using `ggplot` and many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
 
 ## 2023
+### Week 09 - Financing of Black candidatures to Mayor in Brazil
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week09/week09.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week09/mayor.png)
+
 ### Week 08 - Graduates by race in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week08/week08.R
 
