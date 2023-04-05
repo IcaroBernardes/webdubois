@@ -1,4 +1,4 @@
-# webdubois: W.E.B. Du Bois Challenge plots <img align="right" src="https://github.com/IcaroBernardes/webdubois/blob/main/www/portrait.jpg" alt="logo" width="200">
+# webdubois: W.E.B. Du Bois Challenge plots <img align="right" src="https://github.com/IcaroBernardes/webdubois/blob/main/www/portrait_dubois.jpg" alt="logo" width="200">
 
 [W.E.B. Du Bois](https://en.wikipedia.org/wiki/W._E._B._Du_Bois) (February 23, 1868 – August 27, 1963) was an American sociologist, socialist, historian and Pan-Africanist civil rights activist (*Source: Wikipedia*). At the 1900 Paris Exposition, his team made a historical display. They presented in many charts the situation of Black people in Georgia and the US in general. To draw the attention of passersby, they balanced bold aesthetics with elegant solutions for better readability.
 The timelessness of these posters provoked [Anthony Starks](https://twitter.com/ajstarks), [Allen Hillery](https://twitter.com/AlDatavizguy), [Sekou Tyler](https://twitter.com/sqlsekou), and [Chimdi Nwosu](https://twitter.com/menscuriosa) to create and mantain the
