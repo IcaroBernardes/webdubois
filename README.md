@@ -8,7 +8,7 @@ The timelessness of these posters provoked [Anthony Starks](https://twitter.com/
 ### Week 09 - Finances of Black candidatures for Mayor by sex in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week09/week09.R
 
-🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1643638826386980868
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week09/mayors.png)
 
