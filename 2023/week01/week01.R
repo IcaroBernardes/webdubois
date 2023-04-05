@@ -75,6 +75,11 @@ df_exp <- df_exp |>
 ## Mean exchange rates from 2017 and 2018 taken from https://www.exchangerates.org.uk
 exc_rt <- (0.3134 + 0.2755)/2
 
+
+
+
+
+
 ## Creates a function to relabel the income classes of the families
 exchanger <- function(string, unit) {
   

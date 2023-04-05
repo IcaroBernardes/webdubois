@@ -189,16 +189,19 @@ body {
 
 #info-dubois, #info-icaro, #info-starks {
   display: none;
+  align-items: flex-start;
+  column-gap: 20px;
 }
 
 #info-dubois {
   column-gap: 20px;
 }
 
-#portrait {
-  height: 190px;
-  border-radius: 22px;
+.portrait {
+  width: 150px;
+  border-radius: 75px;
   border: 3px hsl(38deg 26% 18%) solid;
+  background-color: hsl(38deg 26% 18%);
 }
 
 #bar {

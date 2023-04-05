@@ -5,12 +5,12 @@ The timelessness of these posters provoked [Anthony Starks](https://twitter.com/
 [#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in `R` using `ggplot` and many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
 
 ## 2023
-### Week 09 - Financing of Black candidatures to Mayor in Brazil
+### Week 09 - Finances of Black candidatures for Mayor by sex in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week09/week09.R
 
 🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
 
-![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week09/mayor.png)
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week09/mayors.png)
 
 ### Week 08 - Graduates by race in Brazil
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week08/week08.R

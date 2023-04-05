@@ -397,7 +397,7 @@ var detailsDATA = {
   "y23wk09": [
     {
       "original-title": "OCCUPATIONS IN WHICH AMERICAN NEGROES ARE ENGAGED",
-      "new-title": "FINANCING OF BLACK CANDIDATURES TO MAYOR IN BRAZIL",
+      "new-title": "FINANCES OF BLACK CANDIDATURES FOR MAYOR BY SEX IN BRAZIL",
       "packages": [
         ["dplyr"],
         ["forcats"],

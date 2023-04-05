@@ -142,10 +142,10 @@ legend <- dplyr::bind_rows(legend_en, legend_fr)
 # 2. Plot production ##########
 ## Creates the title
 title <- "
-<span style='font-size:100px;'>FINANCING OF BLACK CANDIDATURES TO MAYOR IN BRAZIL (2020).</span>
+<span style='font-size:90px;'>FINANCES OF BLACK CANDIDATURES FOR MAYOR BY SEX IN BRAZIL (2020).</span>
 <br><span style='font-size:50px;'>VALUES CONVERTED TO US DOLLARS USING THE AVERAGE EXCHANGE RATE OF 2020: 0.1958 USD = 1 BRL.</span>
 <br>\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582<br><br>
-<span style='font-size:70px;'>FINANCEMENT DES CANDIDATURES NOIRES AU MAIRE AU BRÉSIL (2020).</span>
+<span style='font-size:70px;'>FINANCES DES CANDIDATURES NOIRES À LA MAIRE PAR SEXE AU BRÉSIL (2020).</span>
 <br>\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582\U2582<br><br>
 <span style='font-size:60px;'>INSPIRED BY: W.E.B. DU BOIS | DATA FROM: IBGE | GRAPHIC BY: ÍCARO BERNARDES<br>
 <span style='font-family:\"Font Awesome 6 Brands Regular\";font-size:40px;'>\uf099 </span>@IcaroBSC | 

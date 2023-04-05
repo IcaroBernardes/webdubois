@@ -117,36 +117,6 @@ new_images |>
     
   })
 
-########################## Creates the African symbol ##########################
-# 0. Initial setup ##########
-## Loads packages
-library(rnaturalearth)
-library(rmapshaper)
-library(ggplot2)
-
-## Loads the shapes of the African countries
-africa <- rnaturalearth::ne_countries(
-  continent = "Africa",
-  returnclass = "sf"
-)
-
-# 1. Data handling ##########
-## Dissolves the internal boundaries and simplifies the shape
-africa <- africa |> 
-  rmapshaper::ms_dissolve() |> 
-  rmapshaper::ms_simplify(keep = 0.4)
-
-## Plots the shape
-africa |> 
-  ggplot() +
-  geom_sf(color = NA, fill = "#ffedd6") +
-  coord_sf(xlim = c(-18, 52), ylim = c(-36,38), expand = FALSE) +
-  theme_void()
-
-## Saves the plot
-w <- 40
-ggsave("www/africa.png", width = w, height = w*(104/70), units = "px")
-
 ########## Creates an JS object that has the database for the images ##########
 # 0. Initial setup ##########
 ## Loads packages
@@ -202,7 +172,7 @@ df <- dplyr::tibble(
     "INCARCERATED PEOPLE BY RACE IN BRAZIL",
     "HIGHER EDUCATION ENROLLMENTS BY RACE AND FIELD",
     "GRADUATES BY RACE IN BRAZIL",
-    "FINANCING OF BLACK CANDIDATURES TO MAYOR IN BRAZIL"
+    "FINANCES OF BLACK CANDIDATURES FOR MAYOR BY SEX IN BRAZIL"
   ),
   packages = list(
     list("dplyr", "geomtextpath", "ggbump", "ggfx", "ggplot2",
@@ -357,3 +327,33 @@ listed <- glue::glue("var detailsDATA = {listed}")
 fileConn <- file("www/js/dataset.js")
 writeLines(listed, fileConn)
 close(fileConn)
+
+########################## Creates the African symbol ##########################
+# 0. Initial setup ##########
+## Loads packages
+library(rnaturalearth)
+library(rmapshaper)
+library(ggplot2)
+
+## Loads the shapes of the African countries
+africa <- rnaturalearth::ne_countries(
+  continent = "Africa",
+  returnclass = "sf"
+)
+
+# 1. Data handling ##########
+## Dissolves the internal boundaries and simplifies the shape
+africa <- africa |> 
+  rmapshaper::ms_dissolve() |> 
+  rmapshaper::ms_simplify(keep = 0.4)
+
+## Plots the shape
+africa |> 
+  ggplot() +
+  geom_sf(color = NA, fill = "#ffedd6") +
+  coord_sf(xlim = c(-18, 52), ylim = c(-36,38), expand = FALSE) +
+  theme_void()
+
+## Saves the plot
+w <- 40
+ggsave("www/africa.png", width = w, height = w*(104/70), units = "px")

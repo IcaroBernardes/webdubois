@@ -1,14 +1,19 @@
 # 0. Initial setup ##########
 ## Loads packages
 library(dplyr)
+library(geobr)
+library(geogrid)
 library(ggplot2)
 library(ggtext)
 library(ggview)
 library(glue)
 library(junebug)
+library(purrr)
 library(readxl)
+library(santoku)
 library(scales)
 library(systemfonts)
+library(tidyr)
 
 ## Defines colors
 palette <- c("#000000", "#654321", "#d2b48c", "#ffd700", "#ffc0cb", "#dc143c", "#00aa00", "#4682b4", "#7e6583")
@@ -16,9 +21,10 @@ black <- palette[1]
 brown <- palette[2]
 tan <- palette[3]
 gold <- palette[4]
+pink <- palette[5]
 red <- palette[6]
-blue <- palette[8]
 green <- palette[7]
+blue <- palette[8]
 
 ## Makes special styled fonts available to R (e.g.: Medium, Solid, etc)
 ### Lists fonts visible to {systemfonts}
@@ -38,5 +44,33 @@ font_brands_glyphs <- "Font Awesome 6 Brands Regular"
 ## It can be downloaded from this IBGE page:
 ## https://sidra.ibge.gov.br/Tabela/631
 df <- readxl::read_xlsx("2023/week10/data.xlsx")
+
+## Downloads the shapes of the Brazilian states
+state <- geobr::read_state()
+
+# 1. Data handling ##########
+## Keeps only data on migration (to and from) Bahia state
+df <- df |> 
+  dplyr::filter(home == "Bahia" | born == "Bahia") |> 
+  dplyr::filter(!(home == "Bahia" & born == "Bahia"))
+
+## Creates a variable to represent if data
+## is about people who live or were born in Bahia
+df <- df |> 
+  dplyr::mutate(status = ifelse(home == "Bahia", "home", "born"))
+
+## 
+aux <- df |> 
+  dplyr::group_by(status) |> 
+  tidyr::nest() |> 
+  dplyr::mutate(data = purrr::map(
+    data,
+    ~. |> dplyr::mutate(fill = santoku::chop_pretty(people, 7, drop = FALSE))
+  )) |> 
+  tidyr::unnest(cols = data)
+  
+
+
+
 
 
