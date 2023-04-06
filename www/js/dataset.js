@@ -416,5 +416,36 @@ var detailsDATA = {
         ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week09/mayors.png"]
       ]
     }
+  ],
+  "y23wk10": [
+    {
+      "original-title": "MIGRATION OF NEGROES",
+      "new-title": "MIGRATION ON THE BRAZILIAN STATES",
+      "packages": [
+        ["dplyr"],
+        ["geobr"],
+        ["geogrid"],
+        ["ggnewscale"],
+        ["ggplot2"],
+        ["ggtext"],
+        ["ggview"],
+        ["glue"],
+        ["junebug"],
+        ["metR"],
+        ["purrr"],
+        ["readxl"],
+        ["santoku"],
+        ["scales"],
+        ["sf"],
+        ["stringi"],
+        ["systemfonts"],
+        ["tidyr"]
+      ],
+      "downloads": [
+        ["https://github.com/IcaroBernardes/webdubois/raw/main/2023/week10/data.xlsx"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk10.png"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week10/migration.png"]
+      ]
+    }
   ]
 }
