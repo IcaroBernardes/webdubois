@@ -5,10 +5,10 @@ The timelessness of these posters provoked [Anthony Starks](https://twitter.com/
 [#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in `R` using `ggplot` and many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
 
 ## 2023
-### Week 10 - Migration on the Brazilian states
+### Week 10 - Migration in the Brazilian states
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week10/week10.R
 
-🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1645542687142027265
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week10/migration.png)
 

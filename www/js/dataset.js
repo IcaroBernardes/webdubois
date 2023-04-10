@@ -420,7 +420,7 @@ var detailsDATA = {
   "y23wk10": [
     {
       "original-title": "MIGRATION OF NEGROES",
-      "new-title": "MIGRATION ON THE BRAZILIAN STATES",
+      "new-title": "MIGRATION IN THE BRAZILIAN STATES",
       "packages": [
         ["dplyr"],
         ["geobr"],

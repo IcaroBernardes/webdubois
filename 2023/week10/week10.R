@@ -209,7 +209,7 @@ legend <- dplyr::tibble(
 # 2. Plot production ##########
 ## Creates the title
 title <- "
-<span style='font-size:120px;'>MIGRATION ON THE BRAZILIAN STATES.</span>
+<span style='font-size:120px;'>MIGRATION IN THE BRAZILIAN STATES.</span>
 <br><br>
 <span style='font-size:80px;'>PERCENTAGE OF POPULATION FROM STATES BORN OR LIVING IN BAHIA (2010).</span>
 <br><br>

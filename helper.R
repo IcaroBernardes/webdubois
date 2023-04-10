@@ -174,7 +174,7 @@ df <- dplyr::tibble(
     "HIGHER EDUCATION ENROLLMENTS BY RACE AND FIELD",
     "GRADUATES BY RACE IN BRAZIL",
     "FINANCES OF BLACK CANDIDATURES FOR MAYOR BY SEX IN BRAZIL",
-    "MIGRATION ON THE BRAZILIAN STATES"
+    "MIGRATION IN THE BRAZILIAN STATES"
   ),
   packages = list(
     list("dplyr", "geomtextpath", "ggbump", "ggfx", "ggplot2",
