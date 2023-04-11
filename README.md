@@ -4,6 +4,13 @@
 The timelessness of these posters provoked [Anthony Starks](https://twitter.com/ajstarks), [Allen Hillery](https://twitter.com/AlDatavizguy), [Sekou Tyler](https://twitter.com/sqlsekou), and [Chimdi Nwosu](https://twitter.com/menscuriosa) to create and mantain the
 [#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in `R` using `ggplot` and many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
 
+## Do it yourself!
+In order to reproduce some of the posters I installed the fonts below in my computer:
+
+- Teko font: https://github.com/IcaroBernardes/webdubois/blob/main/www/fonts/Teko.ttf
+- Font Awesome 6 Brands: https://github.com/IcaroBernardes/webdubois/blob/main/www/fonts/FA6brands.ttf
+- Font Awesome 6 Solid: https://github.com/IcaroBernardes/webdubois/blob/main/www/fonts/FA6solid.ttf
+
 ## 2023
 ### Week 10 - Migration in the Brazilian states
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week10/week10.R
