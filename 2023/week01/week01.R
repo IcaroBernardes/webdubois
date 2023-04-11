@@ -5,6 +5,7 @@ library(forcats)
 library(ggplot2)
 library(ggtext)
 library(ggview)
+library(glue)
 library(junebug)
 library(metR)
 library(readxl)
@@ -191,6 +192,28 @@ df_inc <- df_inc |>
                 ymax = ymin + sign*pct_pop/6,
                 label = scales::label_number(accuracy = 0.01, suffix = "%")(pct_pop))
 
+## Defines the coordinates of the guidelines
+guidelines <- df_exp |>
+  dplyr::group_by(income_BRL) |> 
+  dplyr::arrange(desc(type)) |> 
+  dplyr::mutate(x = cumsum(pct)) |> 
+  dplyr::ungroup() |> 
+  dplyr::mutate(income_BRL = as.numeric(income_BRL)) |> 
+  dplyr::add_row(type = rev(levels(df_exp$type)),
+                 x = seq(0, 100, length.out = 7)[-1],
+                 income_BRL = 8.4,
+                 .before = 1L) |> 
+  dplyr::filter(type != "Other expenses and savings") |> 
+  dplyr::arrange(type, desc(income_BRL)) |> 
+  dplyr::mutate(group = 1:n()) |> 
+  dplyr::group_by(type) |>
+  dplyr::mutate(xend = lead(x),
+                y = income_BRL - 0.2,
+                yend = lead(income_BRL) + 0.2) |> 
+  dplyr::slice(-n()) |> 
+  dplyr::ungroup() |> 
+  dplyr::select(x, xend, y, yend, group)
+  
 # 2. Plot production ##########
 ## Creates the title and subtitle
 title <- "
@@ -220,6 +243,10 @@ p <- df_exp |>
   #### Places the expenditure labels
   geom_text(aes(x = x, y = income_BRL, label = label, color = I(color)),
             size = 12, family = "Teko", data = label_exp) +
+  
+  #### Places the guidelines
+  geom_segment(aes(x = x, xend = xend, y = y, yend = yend, group = group),
+               data = guidelines) +
   
   ### Places the "income table" elements
   #### Places the "income table cells"
@@ -333,8 +360,8 @@ p <- df_exp |>
   ) 
 
 ## Shows an accurate preview of the plot
-# ggview::ggview(p, device = "png", dpi = 320,
-#                units = "in", width = 22, height = 28)
+ggview::ggview(p, device = "png", dpi = 320,
+               units = "in", width = 22, height = 28)
 
 ## Saves the plot
 ggsave("2023/week01/expenses.png", plot = p, device = "png", dpi = 320,

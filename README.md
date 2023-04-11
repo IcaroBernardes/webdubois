@@ -75,6 +75,13 @@ In order to reproduce some of the posters I installed the fonts below in my comp
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week02/income.png)
 
+### Week 01 - Income and expenditure of Brazilian families
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week01/week01.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week01/expenses.png)
+
 ## 2022
 ### Week 10 - Proportion of Blacks and non-Blacks candidates and elected for the Lower House of the Brazilian Congress
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2022/week10/week10.R

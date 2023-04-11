@@ -131,8 +131,8 @@ df <- dplyr::tibble(
   ids = c(
     "y22wk01", "y22wk02", "y22wk03", "y22wk04", "y22wk05",
     "y22wk06", "y22wk07", "y22wk08", "y22wk09", "y22wk10",
-    "y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06",
-    "y23wk07", "y23wk08", "y23wk09", "y23wk10"
+    "y23wk01", "y23wk02", "y23wk03", "y23wk04", "y23wk05",
+    "y23wk06", "y23wk07", "y23wk08", "y23wk09", "y23wk10"
   ),
   `original-title` = c(
     "THE GEORGIA NEGRO",
@@ -145,6 +145,7 @@ df <- dplyr::tibble(
     "ASSESSED VALUE OF HOUSEHOLD AND KITCHEN FURNITURE OWNED BY GEORGIA NEGROES",
     "NUMBER OF NEGRO STUDENTS TAKING THE VARIOUS COURSES OF STUDY OFFERED IN GEORGIA SCHOOLS",
     "PROPORTION OF TOTAL NEGRO CHILDREN OF SCHOOL AGE WHO ARE ENROLLED IN THE PUBLIC SCHOOLS",
+    "INCOME AND EXPENDITURE OF 150 NEGRO FAMILIES IN ATLANTA, GA., U.S.A.",
     "VALUE OF LAND OWNED BY GEORGIA NEGROES",
     "CITY AND RURAL POPULATION 1890",
     "DISTRIBUTION OF NEGROES IN THE UNITED STATES",
@@ -166,6 +167,7 @@ df <- dplyr::tibble(
     "RATE OF HOMICIDES OF BLACKS BY PER 100K PEOPLE",
     "OCCUPIED BLACKS PER 1000 PEOPLE BY EDUCATIONAL LEVEL IN BRAZIL",
     "PROPORTION OF BLACKS AND NON-BLACKS CANDIDATES AND ELECTED FOR THE LOWER HOUSE OF THE BRAZILIAN CONGRESS",
+    "INCOME AND EXPENDITURE OF BRAZILIAN FAMILIES",
     "REAL AVERAGE INCOME OF BLACK BRAZILIANS",
     "HOMICIDE VICTIMS BY RACE AND SEX",
     "DISTRIBUTION OF BLACKS IN BRAZIL",
@@ -197,6 +199,9 @@ df <- dplyr::tibble(
     list("dplyr", "ggforce", "ggplot2", "ggtext", "glue",
          "purrr", "scales", "showtext", "sysfonts", "tidyr"),
     list("dplyr", "ggtext", "glue", "showtext", "sysfonts", "tidyr"),
+    list("dplyr", "forcats", "ggplot2", "ggtext", "ggview",
+         "glue", "junebug", "metR", "readxl", "scales",
+         "shadowtext", "stringr", "systemfonts"),
     list("dplyr", "ggforce", "ggplot2", "ggtext", "ggview", "junebug",
          "purrr", "readxl", "scales", "systemfonts", "tidyr"),
     list("dplyr", "geomtextpath", "ggborderline","ggplot2", "ggtext",
@@ -269,6 +274,11 @@ df <- dplyr::tibble(
       "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week10/data.csv",
       "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y22wk10.png",
       "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2022/week10/elections.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2023/week01/data.xlsx",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk01.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week01/expenses.png"
     ),
     list(
       "https://github.com/IcaroBernardes/webdubois/raw/main/2023/week02/data.xlsx",

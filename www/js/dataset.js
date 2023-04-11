@@ -218,6 +218,32 @@ var detailsDATA = {
       ]
     }
   ],
+  "y23wk01": [
+    {
+      "original-title": "INCOME AND EXPENDITURE OF 150 NEGRO FAMILIES IN ATLANTA, GA., U.S.A.",
+      "new-title": "INCOME AND EXPENDITURE OF BRAZILIAN FAMILIES",
+      "packages": [
+        ["dplyr"],
+        ["forcats"],
+        ["ggplot2"],
+        ["ggtext"],
+        ["ggview"],
+        ["glue"],
+        ["junebug"],
+        ["metR"],
+        ["readxl"],
+        ["scales"],
+        ["shadowtext"],
+        ["stringr"],
+        ["systemfonts"]
+      ],
+      "downloads": [
+        ["https://github.com/IcaroBernardes/webdubois/raw/main/2023/week01/data.xlsx"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y23wk01.png"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week01/expenses.png"]
+      ]
+    }
+  ],
   "y23wk02": [
     {
       "original-title": "VALUE OF LAND OWNED BY GEORGIA NEGROES",
