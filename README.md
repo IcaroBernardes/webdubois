@@ -5,7 +5,7 @@ The timelessness of these posters provoked [Anthony Starks](https://twitter.com/
 [#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in `R` using `ggplot` and many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
 
 ## Explore the gallery:
-Compare the pair of pieces (Du Bois' and mines), see which packages were used and download the data and high-resolution versions of the plots. Access at the <a href='https://icarobernardes.github.io/webdubois/' target='_blank'>Du Bois Gallery</a>
+Compare the pairs of pieces (from Du Bois' and myself), see which packages were used, and download the data and high-resolution versions of the plots. Access at the <a href='https://icarobernardes.github.io/webdubois/' target='_blank'>Du Bois Gallery</a><br>
 <a href='https://icarobernardes.github.io/webdubois/' target='_blank'><img src="https://github.com/IcaroBernardes/webdubois/blob/main/www/duboisgallery.png"></a>
 
 ## Do it yourself!
