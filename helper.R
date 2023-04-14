@@ -46,18 +46,21 @@ adjuster <- function(img, final_path, thumb) {
   
   ### Defines the scale geometry
   if (thumb) {
+    scale = 1 
+  } else {
+    scale = 550/700
+  }
+  
+  if (h/w > scale) {
     geom_scales = glue::glue("{w_std}x")
   } else {
-    if (h/w > 1.272727) {
-      geom_scales = glue::glue("{w_std}x")
-    } else {
-      geom_scales = glue::glue("x{h_std}")
-    }
+    geom_scales = glue::glue("x{h_std}")
   }
   
   ### Manipulates the image
   img = img |> 
     magick::image_scale(geometry = geom_scales) |> 
+    magick::image_extent(glue::glue("{w_std}x{h_std}"), color = '#f2f2f2') |> 
     magick::image_crop(geometry = glue::glue("{w_std}x{h_std}"),
                        gravity = "Center")
   
@@ -223,7 +226,7 @@ df <- dplyr::tibble(
     list("dplyr", "geobr", "geogrid", "ggnewscale", "ggplot2", "ggtext",
          "ggview", "glue", "junebug", "metR", "purrr", "readxl",
          "santoku", "scales", "sf", "stringi", "systemfonts", "tidyr")
-    ),
+  ),
   downloads = list(
     list(
       "https://github.com/IcaroBernardes/webdubois/raw/main/2022/week01/data.xlsx",

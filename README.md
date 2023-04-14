@@ -4,6 +4,10 @@
 The timelessness of these posters provoked [Anthony Starks](https://twitter.com/ajstarks), [Allen Hillery](https://twitter.com/AlDatavizguy), [Sekou Tyler](https://twitter.com/sqlsekou), and [Chimdi Nwosu](https://twitter.com/menscuriosa) to create and mantain the
 [#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in `R` using `ggplot` and many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
 
+## Explore the gallery:
+Compare the pair of pieces (Du Bois' and mines), see which packages were used and download the data and high-resolution versions of the plots. Access at the <a href='https://icarobernardes.github.io/webdubois/' target='_blank'>Du Bois Gallery</a>
+<a href='https://icarobernardes.github.io/webdubois/' target='_blank'><img src="https://github.com/IcaroBernardes/webdubois/blob/main/www/duboisgallery.png"></a>
+
 ## Do it yourself!
 In order to reproduce some of the posters I installed the fonts below in my computer:
 
@@ -78,7 +82,7 @@ In order to reproduce some of the posters I installed the fonts below in my comp
 ### Week 01 - Income and expenditure of Brazilian families
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2023/week01/week01.R
 
-🌍 Twitter thread: https://twitter.com/IcaroBSC/status/
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1646694577183637506
 
 ![](https://github.com/IcaroBernardes/webdubois/blob/main/2023/week01/expenses.png)
 
