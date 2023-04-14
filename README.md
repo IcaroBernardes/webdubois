@@ -4,9 +4,8 @@
 The timelessness of these posters provoked [Anthony Starks](https://twitter.com/ajstarks), [Allen Hillery](https://twitter.com/AlDatavizguy), [Sekou Tyler](https://twitter.com/sqlsekou), and [Chimdi Nwosu](https://twitter.com/menscuriosa) to create and mantain the
 [#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in `R` using `ggplot` and many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
 
-## Explore the gallery:
-Compare the pairs of pieces (from Du Bois' and myself), see which packages were used, and download the data and high-resolution versions of the plots. Access at the <a href='https://icarobernardes.github.io/webdubois/' target='_blank'>Du Bois Gallery</a><br>
-<a href='https://icarobernardes.github.io/webdubois/' target='_blank'><img src="https://github.com/IcaroBernardes/webdubois/blob/main/www/duboisgallery.png"></a>
+## Explore the gallery: <a href='https://icarobernardes.github.io/webdubois/' target='_blank'><img align="right" width="40%" src="https://github.com/IcaroBernardes/webdubois/blob/main/www/duboisgallery.png"></a>
+Compare the pairs of pieces (from Du Bois' and myself), see which packages were used, and download the data and high-resolution versions of the plots. Access at the <a href='https://icarobernardes.github.io/webdubois/' target='_blank'>Du Bois Gallery</a>
 
 ## Do it yourself!
 In order to reproduce some of the posters I installed the fonts below in my computer:
