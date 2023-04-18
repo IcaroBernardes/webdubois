@@ -35,7 +35,7 @@ $(document).ready(function(){
       
       // Updates the list of packages
       let pkg = detailsDATA[idimage][0]["packages"].map((el) => {
-        return "<button class='btn'>" + el + "</div>";
+        return "<button class='btn " + el + "'><span>" + el + "</span></button>";
       });
       $('#packages div').html(pkg);
       

@@ -174,17 +174,28 @@ $(document).ready(function(){
   
   // Iterates along the id's and adds the original images as tooltips
   for (let i = 0; i < imageids.length; i++) {
-    const el = "#" + imageids[i];
+    //const el = "#" + imageids[i];
+    //const el = "button";
     $(el).tooltip({
         animated: "fade",
-        placement: "left",
+        placement: "top",
         html: true,
-        title: $("<div>").html("<img src='"+origimages[imageids[i]]+"' width='100%'>")
+        title: $("<div>").html("<img src='"+"www/packages/dplyr.png"+"' width='100%'>")
       })
   }
 });
 </script>
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6C5L03MC06"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6C5L03MC06');
+</script>
 
 <body><div id='container'>
 
@@ -281,9 +292,9 @@ $(document).ready(function(){
   <!-- Menu section -->
   <div id='menu-section'>
     <div id='menu-items'>
-      <div class='menu-button navup navdisable'>&#x1F890;</div>
+      <div class='menu-button navup navdisable'>⏴</div>
       <div id='gallery'></div>
-      <div class='menu-button navdown'>&#x1F892;</div>
+      <div class='menu-button navdown'>⏵</div>
     </div> 
   </div>
   
