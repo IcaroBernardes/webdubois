@@ -315,28 +315,23 @@ body {
 }
 
 .menu-button {
-  font-size: 70px;
-  line-height: 60px;
-  width: 35px;
-  height: 50px;
+  font-size: 80px;
+  line-height: 45px;
+  height: 22px;
   color: #d18520;
   user-select: none;
   cursor: pointer;
   transition: all .5s;
 }
 
-.menu-button.navup, .menu-button.navdown {
-  transform: rotate(90deg);
-}
-
 .menu-button.navup:hover {
-  text-shadow: 3px 0 2px #845415;
-  transform: rotate(90deg) translateX(-5px);
+  text-shadow: 0 3px 2px #845415;
+  transform: translateY(-5px);
 }
 
 .menu-button.navdown:hover {
-  text-shadow: -3px 0 2px #845415;
-  transform: rotate(90deg) translateX(5px);
+  text-shadow: 0 -3px 2px #845415;
+  transform: translateY(5px);
 }
 
 .navdisable {
@@ -346,7 +341,7 @@ body {
 
 .navdisable:hover {
   text-shadow: none !important;
-  transform: rotate(90deg) translateX(0px) !important;
+  transform: translateY(0px) !important;
 }
 
 /* Comparative section */
