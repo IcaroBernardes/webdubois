@@ -473,5 +473,33 @@ var detailsDATA = {
         ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2023/week10/migration.png"]
       ]
     }
+  ],
+  "y24wk01": [
+    {
+      "original-title": "NEGRO POPULATION OF GEORGIA BY COUNTIES",
+      "new-title": "BLACK POPULATION OF BAHIA BY IMMEDIATE REGION",
+      "packages": [
+        ["dplyr"],
+        ["geobr"],
+        ["ggbeeswarm"],
+        ["ggplot2"],
+        ["ggtext"],
+        ["ggview"],
+        ["junebug"],
+        ["patchwork"],
+        ["purrr"],
+        ["readxl"],
+        ["rmapshaper"],
+        ["santoku"],
+        ["scales"],
+        ["systemfonts"],
+        ["tidyr"]
+      ],
+      "downloads": [
+        ["https://github.com/IcaroBernardes/webdubois/raw/main/2024/week01/data.xlsx"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y24wk01.png"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2024/week01/week01.png"]
+      ]
+    }
   ]
 }

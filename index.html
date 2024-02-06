@@ -83,7 +83,8 @@ var imageids = [
 "y22wk01", "y22wk02", "y22wk03", "y22wk04", "y22wk05",
 "y22wk06", "y22wk07", "y22wk08", "y22wk09", "y22wk10",
 "y23wk01", "y23wk02", "y23wk03", "y23wk04", "y23wk05",
-"y23wk06", "y23wk07", "y23wk08", "y23wk09", "y23wk10"
+"y23wk06", "y23wk07", "y23wk08", "y23wk09", "y23wk10",
+"y24wk01"
 ];
 </script>
 
@@ -151,40 +152,7 @@ to indicate limits of the navigation -->
 <!-- Binds hover effects to each svg circle -->
 <script src="www/js/morehover.js"></script>
 
-<!-- JS script that binds original and new plots
-to make the tooltips -->
-<script>
-$(document).ready(function(){
-  
-  // Empty object of names for the original images
-  const origimages = {
-    y22wk09:'',
-    y22wk10:'',
-    y23wk02:'',
-    y23wk03:'',
-    y23wk04:'',
-    y23wk05:'',
-    y23wk06:''
-  };
-  
-  // Object of urls of the original images
-  for(let item of Object.keys(origimages)) {
-    origimages[item] = 'www/dubois/thumb_' + item + '.png'
-  };
-  
-  // Iterates along the id's and adds the original images as tooltips
-  for (let i = 0; i < imageids.length; i++) {
-    //const el = "#" + imageids[i];
-    //const el = "button";
-    $(el).tooltip({
-        animated: "fade",
-        placement: "top",
-        html: true,
-        title: $("<div>").html("<img src='"+"www/packages/dplyr.png"+"' width='100%'>")
-      })
-  }
-});
-</script>
+
 </head>
 
 <!-- Google tag (gtag.js) -->
