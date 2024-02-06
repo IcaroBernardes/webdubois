@@ -99,9 +99,9 @@ workData <- workData |>
   dplyr::mutate(category = santoku::chop(
     pct, breaks = categ_lim,
     labels = santoku::lbl_glue(
-      label = "MORE THAN {l}, {r} OR LESS",
-      first = "{r} OR LESS",
-      last = "MORE THAN {l}",
+      label = "MORE THAN {l}%, {r}% OR LESS",
+      first = "{r}% OR LESS",
+      last = "MORE THAN {l}%",
       fmt = scales::label_number()
     ),
     extend = TRUE, left = FALSE
@@ -161,12 +161,11 @@ purrr::walk(c(2010,2022), insetMaker)
 
 ## Creates the title
 title <- "
-<span style='font-size:100px;'>BLACK POPULATION OF BAHIA BY IMMEDIATE REGION.</span>
+<span style='font-size:95px;'>RATIO OF BLACK POPULATION IN BAHIA BY IMMEDIATE REGION.</span>
 <br><br>
 <span style='font-size:60px;'>INSPIRED BY: W.E.B. DU BOIS | DATA FROM: IBGE | GRAPHIC BY: ÍCARO BERNARDES<br>
-<span style='font-family:\"Font Awesome 6 Brands Regular\";font-size:40px;'>\uf099 </span>@IcaroBSC | 
-<span style='font-family:\"Font Awesome 6 Brands Regular\";font-size:40px;'>\uf09b </span>@IcaroBernardes | 
-<span style='font-family:\"Font Awesome 6 Brands Regular\";font-size:40px;'>\uf08c </span>@icarobsc
+<span style='font-family:\"Font Awesome 6 Brands Regular\";font-size:40px;'>\uf099 \uf16d \uf08c </span>@IcaroBSC | 
+<span style='font-family:\"Font Awesome 6 Brands Regular\";font-size:40px;'>\uf09b </span>@IcaroBernardes 
 </span>
 "
 
