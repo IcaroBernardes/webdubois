@@ -8,11 +8,19 @@ The timelessness of these posters provoked [Anthony Starks](https://twitter.com/
 Compare the pairs of pieces (from Du Bois' and myself), see which packages were used, and download the data and high-resolution versions of the plots. Access at the <a href='https://icarobernardes.github.io/webdubois/' target='_blank'>Du Bois Gallery</a>
 
 ## Do it yourself!
-In order to reproduce some of the posters I installed the fonts below in my computer:
+To reproduce some of the posters I installed on my computer the fonts below:
 
 - Teko font: https://github.com/IcaroBernardes/webdubois/blob/main/www/fonts/Teko.ttf
 - Font Awesome 6 Brands: https://github.com/IcaroBernardes/webdubois/blob/main/www/fonts/FA6brands.ttf
 - Font Awesome 6 Solid: https://github.com/IcaroBernardes/webdubois/blob/main/www/fonts/FA6solid.ttf
+
+## 2024
+### Week 01 - Black Population of Bahia by immediate region
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2024/week01/week01.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1754821135126917301
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2024/week01/week01.png)
 
 ## 2023
 ### Week 10 - Migration in the Brazilian states
