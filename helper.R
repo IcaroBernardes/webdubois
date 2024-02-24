@@ -1,3 +1,33 @@
+########################## Creates the African symbol ##########################
+# 0. Initial setup ##########
+## Loads packages
+library(rnaturalearth)
+library(rmapshaper)
+library(ggplot2)
+
+## Loads the shapes of the African countries
+africa <- rnaturalearth::ne_countries(
+  continent = "Africa",
+  returnclass = "sf"
+)
+
+# 1. Data handling ##########
+## Dissolves the internal boundaries and simplifies the shape
+africa <- africa |> 
+  rmapshaper::ms_dissolve() |> 
+  rmapshaper::ms_simplify(keep = 0.4)
+
+## Plots the shape
+africa |> 
+  ggplot() +
+  geom_sf(color = NA, fill = "#ffedd6") +
+  coord_sf(xlim = c(-18, 52), ylim = c(-36,38), expand = FALSE) +
+  theme_void()
+
+## Saves the plot
+w <- 40
+ggsave("www/africa.png", width = w, height = w*(104/70), units = "px")
+
 ############################## Shapes the images ##############################
 # 0. Initial setup ##########
 ## Loads packages
@@ -136,7 +166,7 @@ df <- dplyr::tibble(
     "y22wk06", "y22wk07", "y22wk08", "y22wk09", "y22wk10",
     "y23wk01", "y23wk02", "y23wk03", "y23wk04", "y23wk05",
     "y23wk06", "y23wk07", "y23wk08", "y23wk09", "y23wk10",
-    "y24wk01"
+    "y24wk01", "y24wk03"
   ),
   `original-title` = c(
     "THE GEORGIA NEGRO",
@@ -159,7 +189,8 @@ df <- dplyr::tibble(
     "COMPARATIVE RATE OF INCREASE OF THE WHITE AND NEGRO ELEMENTS OF THE POPULATION OF THE UNITED STATES",
     "OCCUPATIONS IN WHICH AMERICAN NEGROES ARE ENGAGED",
     "MIGRATION OF NEGROES",
-    "NEGRO POPULATION OF GEORGIA BY COUNTIES"
+    "NEGRO POPULATION OF GEORGIA BY COUNTIES",
+    "ACRES OF LAND OWNED BY NEGROES IN GEORGIA"
   ),
   `new-title` = c(
     "THE AFRO-BRAZILIANS",
@@ -182,7 +213,8 @@ df <- dplyr::tibble(
     "GRADUATES BY RACE IN BRAZIL",
     "FINANCES OF BLACK CANDIDATURES FOR MAYOR BY SEX IN BRAZIL",
     "MIGRATION IN THE BRAZILIAN STATES",
-    "BLACK POPULATION OF BAHIA BY IMMEDIATE REGION"
+    "BLACK POPULATION OF BAHIA BY IMMEDIATE REGION",
+    "PERCENTAGE OF BLACKS IN EXTREME POVERTY"
   ),
   packages = list(
     list("dplyr", "geomtextpath", "ggbump", "ggfx", "ggplot2",
@@ -231,7 +263,9 @@ df <- dplyr::tibble(
          "santoku", "scales", "sf", "stringi", "systemfonts", "tidyr"),
     list("dplyr", "geobr", "ggbeeswarm", "ggplot2", "ggtext", "ggview",
          "junebug", "patchwork", "purrr", "readxl", "rmapshaper",
-         "santoku", "scales", "systemfonts", "tidyr")
+         "santoku", "scales", "systemfonts", "tidyr"),
+    list("dplyr", "forcats", "ggplot2", "ggtext", "ggview",
+         "glue", "junebug", "readxl", "scales", "systemfonts")
   ),
   downloads = list(
     list(
@@ -338,6 +372,11 @@ df <- dplyr::tibble(
       "https://github.com/IcaroBernardes/webdubois/raw/main/2024/week01/data.xlsx",
       "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y24wk01.png",
       "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2024/week01/week01.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2024/week03/data.xlsx",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y24wk03.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2024/week03/week03.png"
     )
   )
 )
@@ -354,40 +393,15 @@ names(listed) <- df |> dplyr::pull(ids)
 ## Creates the JS object as a string
 listed <- listed |> jsonlite::toJSON(pretty = TRUE)
 
-## Adds the 'var' declaration
+## Adds the 'var' declaration. Makes it a global Array
 listed <- glue::glue("var detailsDATA = {listed}")
+
+## Adds another global Array just for the IDs
+ids <- df$ids |> jsonlite::toJSON(pretty = TRUE)
+ids <- glue::glue("var imageids = {ids}")
+listed <- glue::glue("{listed}\n{ids}")
 
 ## Writes the JS file with the data
 fileConn <- file("www/js/dataset.js")
 writeLines(listed, fileConn)
 close(fileConn)
-
-########################## Creates the African symbol ##########################
-# 0. Initial setup ##########
-## Loads packages
-library(rnaturalearth)
-library(rmapshaper)
-library(ggplot2)
-
-## Loads the shapes of the African countries
-africa <- rnaturalearth::ne_countries(
-  continent = "Africa",
-  returnclass = "sf"
-)
-
-# 1. Data handling ##########
-## Dissolves the internal boundaries and simplifies the shape
-africa <- africa |> 
-  rmapshaper::ms_dissolve() |> 
-  rmapshaper::ms_simplify(keep = 0.4)
-
-## Plots the shape
-africa |> 
-  ggplot() +
-  geom_sf(color = NA, fill = "#ffedd6") +
-  coord_sf(xlim = c(-18, 52), ylim = c(-36,38), expand = FALSE) +
-  theme_void()
-
-## Saves the plot
-w <- 40
-ggsave("www/africa.png", width = w, height = w*(104/70), units = "px")

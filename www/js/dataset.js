@@ -501,5 +501,29 @@ var detailsDATA = {
         ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2024/week01/week01.png"]
       ]
     }
+  ],
+  "y24wk03": [
+    {
+      "original-title": "ACRES OF LAND OWNED BY NEGROES IN GEORGIA",
+      "new-title": "PERCENTAGE OF BLACKS IN EXTREME POVERTY",
+      "packages": [
+        ["dplyr"],
+        ["forcats"],
+        ["ggplot2"],
+        ["ggtext"],
+        ["ggview"],
+        ["glue"],
+        ["junebug"],
+        ["readxl"],
+        ["scales"],
+        ["systemfonts"]
+      ],
+      "downloads": [
+        ["https://github.com/IcaroBernardes/webdubois/raw/main/2024/week03/data.xlsx"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y24wk03.png"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2024/week03/week03.png"]
+      ]
+    }
   ]
 }
+var imageids = ["y22wk01", "y22wk02", "y22wk03", "y22wk04", "y22wk05", "y22wk06", "y22wk07", "y22wk08", "y22wk09", "y22wk10", "y23wk01", "y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06", "y23wk07", "y23wk08", "y23wk09", "y23wk10", "y24wk01", "y24wk03"]
