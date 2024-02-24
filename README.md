@@ -15,6 +15,13 @@ To reproduce some of the posters I installed on my computer the fonts below:
 - Font Awesome 6 Solid: https://github.com/IcaroBernardes/webdubois/blob/main/www/fonts/FA6solid.ttf
 
 ## 2024
+### Week 03 - Percentage of Blacks in extreme poverty
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2024/week03/week03.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1761437253446803615
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2024/week03/week03.png)
+
 ### Week 01 - Black Population of Bahia by immediate region
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2024/week01/week01.R
 
