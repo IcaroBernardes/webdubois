@@ -216,7 +216,7 @@ df <- dplyr::tibble(
     "MIGRATION IN THE BRAZILIAN STATES",
     "BLACK POPULATION OF BAHIA BY IMMEDIATE REGION",
     "PERCENTAGE OF BLACKS IN EXTREME POVERTY",
-    "SAMBAS IN WHICH OF AFRO-BRAZILIAN TERMS APPEAR"
+    "SAMBAS IN WHICH AFRO-BRAZILIAN TERMS APPEAR"
   ),
   packages = list(
     list("dplyr", "geomtextpath", "ggbump", "ggfx", "ggplot2",

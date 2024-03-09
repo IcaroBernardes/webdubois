@@ -174,7 +174,7 @@ plotData <- plotData |>
 # 2. Plot production ##########
 ## Creates the title
 title <- "
-<strong style='font-size:90px;'>SAMBAS IN WHICH OF AFRO-BRAZILIAN TERMS APPEAR.</strong>
+<strong style='font-size:90px;'>SAMBAS IN WHICH AFRO-BRAZILIAN TERMS APPEAR.</strong>
 <br>
 <span style='font-size:75px;'>TERMS EXTRACTED WITH NER FROM 480 LYRICS OF RIO SAMBA SCHOOLS (1985-2018).</span>
 <br><br>
