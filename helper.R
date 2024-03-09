@@ -166,7 +166,7 @@ df <- dplyr::tibble(
     "y22wk06", "y22wk07", "y22wk08", "y22wk09", "y22wk10",
     "y23wk01", "y23wk02", "y23wk03", "y23wk04", "y23wk05",
     "y23wk06", "y23wk07", "y23wk08", "y23wk09", "y23wk10",
-    "y24wk01", "y24wk03"
+    "y24wk01", "y24wk03", "y24wk05"
   ),
   `original-title` = c(
     "THE GEORGIA NEGRO",
@@ -190,7 +190,8 @@ df <- dplyr::tibble(
     "OCCUPATIONS IN WHICH AMERICAN NEGROES ARE ENGAGED",
     "MIGRATION OF NEGROES",
     "NEGRO POPULATION OF GEORGIA BY COUNTIES",
-    "ACRES OF LAND OWNED BY NEGROES IN GEORGIA"
+    "ACRES OF LAND OWNED BY NEGROES IN GEORGIA",
+    "RACE AMALGAMATION IN GEORGIA"
   ),
   `new-title` = c(
     "THE AFRO-BRAZILIANS",
@@ -214,7 +215,8 @@ df <- dplyr::tibble(
     "FINANCES OF BLACK CANDIDATURES FOR MAYOR BY SEX IN BRAZIL",
     "MIGRATION IN THE BRAZILIAN STATES",
     "BLACK POPULATION OF BAHIA BY IMMEDIATE REGION",
-    "PERCENTAGE OF BLACKS IN EXTREME POVERTY"
+    "PERCENTAGE OF BLACKS IN EXTREME POVERTY",
+    "OCCURRENCE OF AFRO-BRAZILIAN TERMS IN SAMBAS"
   ),
   packages = list(
     list("dplyr", "geomtextpath", "ggbump", "ggfx", "ggplot2",
@@ -265,7 +267,9 @@ df <- dplyr::tibble(
          "junebug", "patchwork", "purrr", "readxl", "rmapshaper",
          "santoku", "scales", "systemfonts", "tidyr"),
     list("dplyr", "forcats", "ggplot2", "ggtext", "ggview",
-         "glue", "junebug", "readxl", "scales", "systemfonts")
+         "glue", "junebug", "readxl", "scales", "systemfonts"),
+    list("dplyr", "ggplot2", "ggtext", "ggview",
+         "glue", "junebug", "patchwork", "systemfonts", "stringr")
   ),
   downloads = list(
     list(
@@ -377,6 +381,11 @@ df <- dplyr::tibble(
       "https://github.com/IcaroBernardes/webdubois/raw/main/2024/week03/data.xlsx",
       "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y24wk03.png",
       "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2024/week03/week03.png"
+    ),
+    list(
+      "https://github.com/IcaroBernardes/webdubois/raw/main/2024/week05/data.csv",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y24wk05.png",
+      "https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2024/week05/week05.png"
     )
   )
 )

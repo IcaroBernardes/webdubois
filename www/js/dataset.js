@@ -524,6 +524,28 @@ var detailsDATA = {
         ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2024/week03/week03.png"]
       ]
     }
+  ],
+  "y24wk05": [
+    {
+      "original-title": "RACE AMALGAMATION IN GEORGIA",
+      "new-title": "OCCURRENCE OF AFRO-BRAZILIAN TERMS IN SAMBAS",
+      "packages": [
+        ["dplyr"],
+        ["ggplot2"],
+        ["ggtext"],
+        ["ggview"],
+        ["glue"],
+        ["junebug"],
+        ["patchwork"],
+        ["systemfonts"],
+        ["stringr"]
+      ],
+      "downloads": [
+        ["https://github.com/IcaroBernardes/webdubois/raw/main/2024/week05/data.csv"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/originals/y24wk05.png"],
+        ["https://raw.githubusercontent.com/IcaroBernardes/webdubois/main/2024/week05/week05.png"]
+      ]
+    }
   ]
 }
-var imageids = ["y22wk01", "y22wk02", "y22wk03", "y22wk04", "y22wk05", "y22wk06", "y22wk07", "y22wk08", "y22wk09", "y22wk10", "y23wk01", "y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06", "y23wk07", "y23wk08", "y23wk09", "y23wk10", "y24wk01", "y24wk03"]
+var imageids = ["y22wk01", "y22wk02", "y22wk03", "y22wk04", "y22wk05", "y22wk06", "y22wk07", "y22wk08", "y22wk09", "y22wk10", "y23wk01", "y23wk02", "y23wk03", "y23wk04", "y23wk05", "y23wk06", "y23wk07", "y23wk08", "y23wk09", "y23wk10", "y24wk01", "y24wk03", "y24wk05"]
