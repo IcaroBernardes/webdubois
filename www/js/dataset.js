@@ -528,7 +528,7 @@ var detailsDATA = {
   "y24wk05": [
     {
       "original-title": "RACE AMALGAMATION IN GEORGIA",
-      "new-title": "OCCURRENCE OF AFRO-BRAZILIAN TERMS IN SAMBAS",
+      "new-title": "SAMBAS IN WHICH OF AFRO-BRAZILIAN TERMS APPEAR",
       "packages": [
         ["dplyr"],
         ["ggplot2"],
