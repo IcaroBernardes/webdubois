@@ -128,13 +128,6 @@ termsData <- listTerms |>
   ) |> 
   dplyr::ungroup()
 
-## Summarizes by type
-plotData <- termsData |> 
-  dplyr::summarise(
-    sambas = sum(sambas),
-    .by = type
-  )
-
 ## Lists the top5 terms of each type and their counts
 termsData <- termsData |> 
   dplyr::slice_max(order_by = sambas, by = type, n = 5) |> 
@@ -145,6 +138,21 @@ termsData <- termsData |>
   ) |> 
   dplyr::mutate(body = glue::glue("{body} AND MORE."))
 
+## Counts the number of sambas in which each type appears
+plotData <- listTerms |> 
+  dplyr::summarise(
+    pattern = glue::glue_collapse(term, sep = "\\b|\\b"),
+    .by = type
+  ) |> 
+  dplyr::mutate(pattern = glue::glue("\\b{pattern}\\b")) |> 
+  dplyr::rowwise() |> 
+  dplyr::mutate(
+    sambas = workData$lyrics |> 
+      stringr::str_detect(pattern) |> 
+      sum()
+  ) |> 
+  dplyr::ungroup()
+  
 ## Creates labels for the types
 plotData <- plotData |> 
   dplyr::mutate(
@@ -159,7 +167,7 @@ plotData <- plotData |>
     type = factor(type, levels = c("places", "expressions", "people"))
   ) |> 
   dplyr::arrange(desc(type)) |> 
-  dplyr::mutate(Ytxt = cumsum(sambas)-40,
+  dplyr::mutate(Ytxt = cumsum(sambas)-30,
                 Yval = lag(cumsum(sambas), default = 0) + sambas/2,
                 colVal = c(black, tan, tan))
 
