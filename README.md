@@ -2,19 +2,26 @@
 
 [W.E.B. Du Bois](https://en.wikipedia.org/wiki/W._E._B._Du_Bois) (February 23, 1868 – August 27, 1963) was an American sociologist, socialist, historian and Pan-Africanist civil rights activist (*Source: Wikipedia*). At the 1900 Paris Exposition, his team made a historical display. They presented in many charts the situation of Black people in Georgia and the US in general. To draw the attention of passersby, they balanced bold aesthetics with elegant solutions for better readability.
 The timelessness of these posters provoked [Anthony Starks](https://twitter.com/ajstarks), [Allen Hillery](https://twitter.com/AlDatavizguy), [Sekou Tyler](https://twitter.com/sqlsekou), and [Chimdi Nwosu](https://twitter.com/menscuriosa) to create and mantain the
-[#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools whatsoever. I chose to make these charts in `R` using `ggplot` and many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
+[#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits/tree/master/challenge). The proposal was to reproduce Du Bois posters with any tools whatsoever. So, I chose `ggplot2` and its many extensions. Furthermore, I used this opportunity to present data on racial inequality and Black achievements in my homeland, Brazil.
 
 ## Explore the gallery: <a href='https://icarobernardes.github.io/webdubois/' target='_blank'><img align="right" width="40%" src="https://github.com/IcaroBernardes/webdubois/blob/main/www/duboisgallery.png"></a>
 Compare the pairs of pieces (from Du Bois' and myself), see which packages were used, and download the data and high-resolution versions of the plots. Access at the <a href='https://icarobernardes.github.io/webdubois/' target='_blank'>Du Bois Gallery</a>
 
 ## Do it yourself!
-To reproduce some of the posters I installed on my computer the fonts below:
+These are the fonts I used:
 
 - Teko font: https://github.com/IcaroBernardes/webdubois/blob/main/www/fonts/Teko.ttf
 - Font Awesome 6 Brands: https://github.com/IcaroBernardes/webdubois/blob/main/www/fonts/FA6brands.ttf
 - Font Awesome 6 Solid: https://github.com/IcaroBernardes/webdubois/blob/main/www/fonts/FA6solid.ttf
 
 ## 2024
+### Week 05 - Occurrence of Afro-Brazilian terms in Sambas
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2024/week05/week05.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1766445893258014994
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2024/week05/week05.png)
+
 ### Week 03 - Percentage of Blacks in extreme poverty
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2024/week03/week03.R
 
