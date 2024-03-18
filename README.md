@@ -15,6 +15,13 @@ These are the fonts I used:
 - Font Awesome 6 Solid: https://github.com/IcaroBernardes/webdubois/blob/main/www/fonts/FA6solid.ttf
 
 ## 2024
+### Week 06 - Occurrence of Afro-Brazilian terms in Sambas
+💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2024/week06/week06.R
+
+🌍 Twitter thread: https://twitter.com/IcaroBSC/status/1769700309545165038
+
+![](https://github.com/IcaroBernardes/webdubois/blob/main/2024/week06/week06.png)
+
 ### Week 05 - Occurrence of Afro-Brazilian terms in Sambas
 💻 Code: https://github.com/IcaroBernardes/webdubois/blob/main/2024/week05/week05.R
 
